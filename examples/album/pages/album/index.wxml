@@ -1,0 +1,13 @@
+<view class="cnt">
+  <share-element key="navigation-bar">
+    <navigation-bar title="相册图片预览" back></navigation-bar>
+  </share-element>
+  <album
+    class="album"
+    list="{{list}}"
+    imageWidth="{{imageWidth}}"
+    imageMargin="{{imageMargin}}"
+    lineLimit="{{lineLimit}}"
+  ></album>
+  <view class="safe-area-inset-bottom"></view>
+</view>

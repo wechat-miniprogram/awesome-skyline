@@ -1,0 +1,78 @@
+.preview-cnt {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+}
+
+.preview-list {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.need-hide-on-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.share-element-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: transparent;
+}
+
+.share-element-image .temp-image {
+  background-color: transparent;
+}
+
+.share-element-image .temp-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.preview-middle-self {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: #fff;
+}
+
+.navigation-bar-cnt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.navigation-bar-cnt.show {
+  transform: none;
+  opacity: 1;
+}
+
+.navigation-bar-cnt.hide {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.navigation-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}

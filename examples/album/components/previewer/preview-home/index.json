@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "preview-list": "../preview-list/index",
+    "navigation-bar": "../../navigation-bar/index"
+  }
+}

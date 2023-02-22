@@ -1,0 +1,107 @@
+page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  color: #1A191E;
+}
+page, view {
+  box-sizing: border-box;
+}
+pan-gesture-handler, vertical-drag-gesture-handler {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.container {
+  flex: 1;
+  width: 100vw;
+  overflow: hidden;
+}
+.container image {
+  width: 100vw;
+}
+
+#myMap {
+  width: 100vw;
+  height: 100vh;
+}
+
+.open-comment {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: white;
+}
+.open-comment-wording {
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.safe-area-inset-bottom {
+  height: env(safe-area-inset-bottom);
+}
+
+.comment-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.comment-header {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  padding: 15px 0;
+}
+.comment-handler {
+  width: 50px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #EEE;
+  margin: 0 auto 10px;
+}
+.comment-list {
+  flex: 1;
+  overflow: hidden;
+}
+.comment-item {
+  padding: 0 20px 20px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.main-comment, .sub-comment {
+  display: flex;
+  flex-direction: row;
+}
+.sub-comment {
+  padding: 10px 22px 0;
+}
+
+.user-head-img {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.others {
+  flex: 1;
+  margin-left: 10px;
+}
+.user-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content {
+  margin-top: 2px;
+}

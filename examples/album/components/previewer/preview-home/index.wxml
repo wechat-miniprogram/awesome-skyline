@@ -1,0 +1,26 @@
+<view class="navigation-bar-cnt {{pretty ? 'hide' : 'show'}}">
+  <share-element key="navigation-bar">
+    <navigation-bar class="navigation-bar preview-top-self" back bindback="onBack"></navigation-bar>
+  </share-element>
+</view>
+<view class="preview-extra middle preview-middle-self"></view>
+<view class="preview-cnt">
+  <view class="need-hide-on-back">
+    <preview-list
+      class="preview-list"
+      index="{{index}}"
+      list="{{list}}"
+      bindbeforerender="onBeforeRender"
+      bindtapimage="onTapImage"
+    ></preview-list>
+  </view>
+  <share-element
+    key="{{list[tempIndex] && list[tempIndex].id}}"
+    class="share-element-image need-transform-on-back"
+    shuttleOnPush="from"
+  >
+    <view class="temp-image">
+      <image src="{{list[tempIndex] && list[tempIndex].src}}" mode="aspectFit"></image>
+    </view>
+  </share-element>
+</view>

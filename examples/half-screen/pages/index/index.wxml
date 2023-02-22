@@ -1,0 +1,41 @@
+<scroll-view class="container" scroll-y type="list">
+  <image src="https://res.wx.qq.com/op_res/FAyreGAUWqLJv09oZqfNbsZz1a4HO_JEUy5rIcjJrlKaGrOcbjL6i6BvGd8snx2csU2JI0UwcVZGE48Tzvf9aQ" mode="widthFix"></image>
+</scroll-view>
+<view class="open-comment" bind:tap="onTapOpenComment">
+  <view class="open-comment-wording">打开留言</view>
+  <view class="safe-area-inset-bottom"></view>
+</view>
+
+<view class="comment-container">
+  <!-- 顶部不参与手势协商，单独控制 -->
+  <pan-gesture-handler on-gesture-event="handlePan" style="flex-shrink: 0;">
+    <view class="comment-header">
+      <view class="close-comment" bind:tap="onTapCloseComment">∨</view>
+      留言
+    </view>
+  </pan-gesture-handler>
+  <!-- 滚动区要与 pan 手势协商 -->
+  <pan-gesture-handler id="pan" should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" on-gesture-event="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
+      <scroll-view class="comment-list" scroll-y adjustDecelerationVelocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
+        <view class="comment-item" wx:for="{{list}}">
+          <view class="main-comment">
+            <image fade-in class="user-head-img" src="{{item.userHeadImg}}"></image>
+            <view class="others">
+              <text class="user-name">{{item.userName}}</text>
+              <text class="content">{{item.comment}}</text>
+            </view>
+          </view>
+          <view class="sub-comment" wx:for="{{item.subCommentList}}" wx:key="id" wx:for-item="subItem" wx:for-index="subIndex">
+            <image fade-in class="user-head-img" src="{{subItem.userHeadImg}}"></image>
+            <view class="others">
+              <text class="user-name">{{subItem.userName}} 回复 {{subItem.replyUserName}}</text>
+              <text class="content">{{subItem.comment}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="safe-area-inset-bottom"></view>
+      </scroll-view>
+    </vertical-drag-gesture-handler>
+  </pan-gesture-handler>
+</view>

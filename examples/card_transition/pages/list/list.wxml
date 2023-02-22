@@ -1,0 +1,24 @@
+<navigation-bar back title="发现"></navigation-bar>
+
+<scroll-view
+ scroll-y
+ style="flex: 1; width: 100%; overflow: hidden; padding: {{padding}}px; padding-bottom: 0;"
+ type="custom"
+ show-scrollbar="{{false}}"
+>
+	<grid-view
+	 type="masonry"
+	 cross-axis-count="2"
+	 cross-axis-gap="4"
+	 main-axis-gap="4"
+	>
+		<card
+		 wx:for="{{gridList}}"
+		 wx:key="id"
+     card-width="{{cardWidth}}"
+		 index="{{index}}"
+		 item="{{item}}"
+		/>
+	</grid-view>
+</scroll-view>
+

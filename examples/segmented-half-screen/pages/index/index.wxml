@@ -1,0 +1,35 @@
+<map id="myMap" scale="{{scale}}" latitude="23.099994" longitude="113.324520"></map>
+
+<view class="comment-container" style="height: {{height}}px;">
+  <!-- 顶部不参与手势协商，单独控制 -->
+  <pan-gesture-handler onGestureEvent="handlePan" style="flex-shrink: 0;">
+    <view class="comment-header" bind:touchend="handleTouchEnd">
+      <view class="comment-handler"></view>
+      留言
+    </view>
+  </pan-gesture-handler>
+  <!-- 滚动区要与 pan 手势协商 -->
+  <pan-gesture-handler id="pan" shouldResponseOnMove="shouldPanResponse" simultaneousHandlers="{{['scroll']}}" onGestureEvent="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" shouldResponseOnMove="shouldScrollViewResponse" simultaneousHandlers="{{['pan']}}">
+      <scroll-view class="comment-list" scroll-y adjustDecelerationVelocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
+        <view class="comment-item" wx:for="{{list}}" wx:key="index">
+          <view class="main-comment">
+            <image fade-in class="user-head-img" src="{{item.userHeadImg}}"></image>
+            <view class="others">
+              <text class="user-name">{{item.userName}}</text>
+              <text class="content">{{item.comment}}</text>
+            </view>
+          </view>
+          <view class="sub-comment" wx:for="{{item.subCommentList}}" wx:key="id" wx:for-item="subItem" wx:for-index="subIndex">
+            <image fade-in class="user-head-img" src="{{subItem.userHeadImg}}"></image>
+            <view class="others">
+              <text class="user-name">{{subItem.userName}} 回复 {{subItem.replyUserName}}</text>
+              <text class="content">{{subItem.comment}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="safe-area-inset-bottom"></view>
+      </scroll-view>
+    </vertical-drag-gesture-handler>
+  </pan-gesture-handler>
+</view>

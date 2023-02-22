@@ -1,0 +1,16 @@
+<navigation-bar title="Tab 指示条" back></navigation-bar>
+<view class="tab-container">
+  <view class="tab-list">
+    <view wx:for="{{tabs}}" wx:key="title" class="tab-item {{selectedTab === index ? 'active' : ''}}" data-tab="{{index}}" bindtap="onTapTab">
+      <view>{{ item.title }}</view>
+    </view>
+    <view class="tab-border" style="transform: translateX({{translateX}}px) scaleX(0.7);"></view>
+  </view>
+  <swiper class="scroll-list" current="{{selectedTab}}" bind:change="onTabChanged" bind:transition="onTabTransition" duration="{{400}}" cache-extent="1">
+    <swiper-item wx:for="{{tabs}}" wx:key="title">
+      <image class="item-image" src="{{item.img}}" mode="widthFix"></image>
+      <view class="item-title">{{item.title2}}</view>
+      <view>{{item.desc}}</view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,106 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: transparent;
+}
+
+view, scroll-view, page, image {
+  box-sizing: border-box;
+}
+
+#fake-host {
+  background-color: #FFF;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navigation-bar {
+  padding-top: 44px;
+  padding-top: env(safe-area-inset-top);
+  background-color: white;
+}
+
+.navigation-bar-content {
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.navigation-bar-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+
+.navigation-bar-title {
+  flex: 1;
+  padding-left: 8px;
+}
+
+.navigation-bar-follow {
+  color: red;
+  border: .5px solid red;
+  border-radius: 15px;
+  padding: 3px 15px;
+  margin-right: 80px;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-content {
+  padding: 15px;
+}
+
+.detail-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 3px;
+}
+
+.detail-p {
+  padding-bottom: 2px;
+}
+
+.footer {
+  padding-bottom: env(safe-area-inset-bottom);
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+}
+
+.footer input {
+  flex: 1;
+  background-color: #EEE;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 15px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.footer span {
+  padding-right: 15px;
+}
+
+.footer-icon {
+ font-size: 26px;
+}

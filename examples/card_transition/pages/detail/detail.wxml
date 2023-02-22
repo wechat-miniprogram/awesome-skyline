@@ -1,0 +1,72 @@
+<pan-gesture-handler on-gesture-event="handlePanGesture">
+	<view id="fake-host">
+		<view id="page">
+			<view class="navigation-bar">
+				<view class="navigation-bar-content">
+					<image class="navigation-bar-avatar" src="https://picsum.photos/50/50" />
+					<view class="navigation-bar-title">上汽认证</view>
+					<view class="navigation-bar-follow">关注</view>
+				</view>
+			</view>
+			<share-element
+			 key="se-key{{index}}"
+			 shuttle-on-push="from"
+			 transition-on-gesture="{{true}}"
+			 rect-tween-type="cubic-bezier(0.4, 0.0, 0.2, 1.0)"
+			 style="width: 100%; height: 0px;"
+			>
+				<view/>
+			</share-element>
+
+			<scroll-view
+			 scroll-y
+			 style="flex: 1; width: 100%; overflow: hidden;"
+			 type="list"
+			 show-scrollbar="{{false}}"
+			>
+				<view>
+          <!-- swiper 还可以做个手势协商，此处省略，即在当前是第一张图时，右滑触动页面返回交互 -->
+					<swiper id="swiper" style="width: 100%; height: auto; aspect-ratio: {{ratio}};">
+						<swiper-item>
+							<image class="detail-image" mode="widthFix" src="{{url}}" />
+						</swiper-item>
+						<swiper-item>
+							<image class="detail-image" mode="widthFix" src="https://picsum.photos/400/300" />
+						</swiper-item>
+					</swiper>
+				</view>
+
+				<view class="detail-content">
+					<view class="detail-title">{{content}}</view>
+					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
+					<view class="detail-p" style="padding-bottom: 20px;" />
+					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
+					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
+					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
+					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
+					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
+					<view class="detail-p">😯</view>
+					<view class="detail-p">👸</view>
+					<view class="detail-p">😯</view>
+					<view class="detail-p">👸</view>
+					<view class="detail-p">😯</view>
+					<view class="detail-p">👸</view>
+				</view>
+			</scroll-view>
+			<view class="footer">
+				<view class="footer-content">
+					<input placeholder="说点什么..." />
+					<span>
+						<text class="footer-icon">❤️</text>
+						317
+					</span>
+					<span>
+						<text class="footer-icon">⭐️</text>
+						723
+					</span>
+				</view>
+			</view>
+		</view>
+	</view>
+</pan-gesture-handler>
+
