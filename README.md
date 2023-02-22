@@ -4,9 +4,9 @@ Skyline 是微信小程序推出的新渲染引擎，用于替代 WebView 渲染
 
 ## 示例集
 
-- (通讯录)[./examples/address-book]
-- (相册)[./examples/album]
-- (卡片转场)[./examples/card_transition]
-- (半屏弹窗)[./examples/half-screen]
-- (分段式半屏)[./examples/segmented-half-screen]
-- (Tab 指示条)[./examples/tab-indicator]
+- [通讯录](./examples/address-book)
+- [相册](./examples/album)
+- [卡片转场](./examples/card_transition)
+- [半屏弹窗](./examples/half-screen)
+- [分段式半屏](./examples/segmented-half-screen)
+- [Tab 指示条](./examples/tab-indicator)
