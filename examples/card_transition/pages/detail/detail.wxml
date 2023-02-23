@@ -38,19 +38,20 @@
 
 				<view class="detail-content">
 					<view class="detail-title">{{content}}</view>
-					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
+          <view class="detail-p" style="padding-bottom: 20px;" />
+					<view class="detail-p">🔥 Skyline 以性能为首要目标，提供更为接近原生的用户体验，Skyline 具有以下特点：</view>
+          <view class="detail-p" style="padding-bottom: 10px;" />
+					<view class="detail-p">🌟 界面更不容易被逻辑阻塞，进一步减少卡顿</view>
+					<view class="detail-p">🌟 无需为每个页面新建一个 JS 引擎实例（WebView），减少了内存、时间开销</view>
+					<view class="detail-p">🌟 框架可以在页面之间共享更多的资源，进一步减少运行时内存、时间开销</view>
+					<view class="detail-p">🌟 框架的代码之间无需再通过 JSBridge 进行数据交换，减少了大量通信时间开销</view>
 					<view class="detail-p" style="padding-bottom: 20px;" />
-					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
-					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
-					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
-					<view class="detail-p">😯 这里是一个无人、安静、小众、没有旅游开发的宝藏小众拍照地。</view>
-					<view class="detail-p">👸 最吸引人的无疑是这里的丹霞地貌高山，不想去韶关丹霞山人挤人，可以考虑来这独享。</view>
-					<view class="detail-p">😯</view>
-					<view class="detail-p">👸</view>
-					<view class="detail-p">😯</view>
-					<view class="detail-p">👸</view>
-					<view class="detail-p">😯</view>
-					<view class="detail-p">👸</view>
+					<view class="detail-p">👇👇👇 支持了一些 Web 所缺失的但很重要的能力，以满足开发者实现更好的交互体验：</view>
+          <view class="detail-p" style="padding-bottom: 10px;" />
+					<view class="detail-p">🔸 Worklet 动画：能够在渲染线程同步运行动画相关逻辑。</view>
+					<view class="detail-p">🔸 手势系统：在渲染线程同步监听手势、执行手势相关逻辑；支持手势协商处理；</view>
+					<view class="detail-p">🔸 自定义路由：实现自定义路由动画和交互。</view>
+					<view class="detail-p">🔸 共享元素动画：将上一个页面的元素“共享”到下一个页面，并伴随着过渡动画。</view>
 				</view>
 			</scroll-view>
 			<view class="footer">

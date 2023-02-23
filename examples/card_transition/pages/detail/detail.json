@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "backgroundColorContent": "#00000000"
+  "backgroundColorContent": "#00000000",
+  "renderer": "skyline"
 }

@@ -96,7 +96,7 @@ Component({
   methods: {
     navigateTo(e) {
       const { index, url, content, ratio } = e.currentTarget.dataset
-      const urlContent = `/pages/detail/detail?index=${index}&url=${encodeURIComponent(url)}&content=${content}&ratio=${ratio}`
+      const urlContent = `../../pages/detail/detail?index=${index}&url=${encodeURIComponent(url)}&content=${content}&ratio=${ratio}`
       wx.navigateTo({
         url: urlContent,
         routeType: 'ScaleTransition',
