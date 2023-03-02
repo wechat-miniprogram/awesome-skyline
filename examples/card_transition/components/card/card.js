@@ -99,7 +99,7 @@ Component({
       const urlContent = `../../pages/detail/detail?index=${index}&url=${encodeURIComponent(url)}&content=${content}&ratio=${ratio}`
       wx.navigateTo({
         url: urlContent,
-        routeType: 'ScaleTransition',
+        routeType: 'CardScaleTransition',
       })
     },
     handleFrame(data) {

@@ -163,6 +163,6 @@ export function installRouteBuilder() {
   if (hasInstalled) {
     return
   }
-  wx.router.addRouteBuilder('ScaleTransition', ScaleTransitionRouteBuilder)
+  wx.router.addRouteBuilder('CardScaleTransition', ScaleTransitionRouteBuilder)
   hasInstalled = true
 }
