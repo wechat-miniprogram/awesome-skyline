@@ -122,12 +122,12 @@ Component({
         wx.vibrateShort({
           type: 'light'
         })
+        this.setData({
+          current,
+          intoView: current,
+          touching: true
+        })
       }
-      this.setData({
-        current,
-        intoView: current,
-        touching: true
-      })
     },
     cancelPan() {
       setTimeout(() => {
@@ -177,6 +177,7 @@ Component({
       }
     },
     updateCurrent(idx) {
+      if (this.data.touching) return
       this.setData({ current: this.data.alphabet[idx] })
     },
   }
