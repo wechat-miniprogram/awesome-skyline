@@ -28,9 +28,9 @@ const DEFAULT_IMG_SCALE_MAX = 10
 let screenWidth = 0
 let screenHeight = 0
 
-function adjustTiming(target, renderer) {
+function adjustTiming(target, renderer, callback) {
   'worklet'
-  return getTiming(renderer)(target, { duration: 300 })
+  return getTiming(renderer)(target, { duration: 300 }, callback)
 }
 
 function recoverTiming(target, renderer, callback) {
@@ -258,7 +258,9 @@ Component({
             sharedValues[MOVE_Y].value = withAnimation ? adjustTiming(newMoveY, renderer) : newMoveY
             if (withAnimation) {
               // 有动画，表示是双击放大，不需要考虑阻尼
-              sharedValues[SCALE].value = adjustTiming(tempNewScale, renderer)
+              sharedValues[SCALE].value = adjustTiming(tempNewScale, renderer, () => {
+                sharedValues[GESTURE_STATE].value = 0 // 动画结束，状态恢复初始
+              })
               sharedValues[TEMP_SCALE].value = tempNewScale
             } else {
               let calcNewScale = newScale
