@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
   "backgroundColorContent": "#00000000",
+  "componentFramework": "glass-easel",
   "renderer": "skyline"
 }

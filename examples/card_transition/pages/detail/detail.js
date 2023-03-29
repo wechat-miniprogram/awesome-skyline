@@ -32,7 +32,17 @@ Component({
     ratio: {
       type: Number,
       value: 1
+    },
+    nickname: {
+      type: String,
+      value: '',
     }
+  },
+  data: {
+    imageList: [
+      'https://res.wx.qq.com/op_res/BqgN85sXxTbk1kynEEihr7lTnuuiwGJPwwjxDVYbDolj05sAxd5cOESVZt4_nl1KwzkiDWTvG56LuhE45xAaZA',
+      'https://res.wx.qq.com/op_res/Ak_VAL-nLvq6laAMVJA86rf3NAZ2vY86v757dfja16Z95xtoxk4BWWDuTCPT-pD1SjGGIddUsH0l6C8Yu5LJlw'
+    ]
   },
   lifetimes: {
     created() {

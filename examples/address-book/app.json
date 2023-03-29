@@ -9,7 +9,7 @@
         "navigationBarTextStyle": "black"
     },
     "style": "v2",
-    "renderer": "skyline",
+  "renderer": "skyline",
     "lazyCodeLoading": "requiredComponents",
     "sitemapLocation": "sitemap.json"
 }

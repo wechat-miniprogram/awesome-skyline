@@ -15,7 +15,7 @@
 		<card
 		 wx:for="{{gridList}}"
 		 wx:key="id"
-     card-width="{{cardWidth}}"
+     	 card-width="{{cardWidth}}"
 		 index="{{index}}"
 		 item="{{item}}"
 		/>

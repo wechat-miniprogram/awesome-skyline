@@ -17,7 +17,7 @@
   <share-element
     key="{{list[tempIndex] && list[tempIndex].id}}"
     class="share-element-image need-transform-on-back"
-    shuttleOnPush="from"
+    shuttleOnPush="to"
   >
     <view class="temp-image">
       <image src="{{list[tempIndex] && list[tempIndex].src}}" mode="aspectFit"></image>
