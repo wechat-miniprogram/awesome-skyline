@@ -26,7 +26,7 @@
 			>
 				<view>
           			<!-- swiper 还可以做个手势协商，此处省略，即在当前是第一张图时，右滑触动页面返回交互 -->
-					<swiper id="swiper" style="width: 100%; height: auto; aspect-ratio: {{ratio}};" indicator-dots>
+					<swiper id="swiper" style="width: 100%; height: {{swiperHeight}}px;" indicator-dots>
 						<swiper-item>
 							<image class="detail-image" mode="widthFix" src="{{url}}" />
 						</swiper-item>
