@@ -3,5 +3,5 @@
   "usingComponents": {
     "album-image": "./album-image/index"
   },
-  "componentFramework": "glass-easel"
+  "//componentFramework": "glass-easel"
 }

@@ -3,6 +3,6 @@
     "navigation-bar": "../../components/navigation-bar/index",
     "card": "../../components/card/card"
   },
-  "componentFramework": "glass-easel",
+  "//componentFramework": "glass-easel",
   "renderer": "skyline"
 }

@@ -5,6 +5,6 @@
   "navigationStyle": "custom",
   "backgroundColorContent": "#00000000",
   "disableScroll": true,
-  "componentFramework": "glass-easel",
+  "//componentFramework": "glass-easel",
   "renderer": "skyline"
 }
