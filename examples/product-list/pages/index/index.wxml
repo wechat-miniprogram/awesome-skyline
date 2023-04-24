@@ -1,0 +1,88 @@
+<navigation-bar class="nav-bar" title="" back="{{false}}">
+	<view class="nav-left" slot="left">
+		<image class="nav-logo" mode="aspectFill" src="/images/logo.png" />
+		<view class="nav-title">
+			<text>优选好物</text>
+		</view>
+	</view>
+</navigation-bar>
+
+<scroll-view
+ class="scroll-area"
+ type="custom"
+ scroll-y
+ show-scrollbar="{{false}}"
+ worklet:onstartstart="handleScrollStart"
+ worklet:onscrollupdate="handleScrollUpdate"
+ worklet:onscrollend="handleScrollEnd"
+>
+	<view class="fake-nav-bar" />
+	<sticky-section push-pinned-header="{{false}}">
+		<sticky-header>
+			<view class="search-container" style="padding-top: {{paddingTop}}px;">
+				<view class="search">
+					<view class="search-icon-wrp">
+						<image class="search-icon" src="/images/search.png" />
+					</view>
+					<view class="search-text">53度贵州老窖酒</view>
+					<view class="search-btn">搜索</view>
+				</view>
+			</view>
+		</sticky-header>
+		<swiper class="category-wrp">
+			<block wx:for="{{categorySet}}" wx:key="page">
+				<swiper-item>
+					<view class="category-list">
+						<block wx:for="{{item.categorys}}" wx:key="id" wx:for-item="category">
+							<view class="category-item" style="width: {{categoryItemWidth}}px;">
+								<image class="category-icon" src="{{category.icon}}" />
+								<view class="category-name">
+									<text>{{category.name}}</text>
+								</view>
+							</view>
+						</block>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</sticky-section>
+
+	<sticky-section push-pinned-header="{{false}}" padding="{{[0, 16, 0, 16]}}">
+		<sticky-header>
+			<scroll-view
+			 class="vip-categorys-list"
+			 scroll-x
+			 type="list"
+			 show-scrollbar="{{false}}"
+			 scroll-with-animation
+			 scroll-into-view="{{intoView}}"
+			 scroll-into-view-alignment="center"
+			>
+				<block wx:for="{{vipCategorys}}" wx:key="id">
+					<view class="vip-category-item" style="padding-left: {{index === 0 ? 10 : 60}}px;" id="vip-category-{{index}}">
+						<text class="vip-category-name {{selected === index ? 'selected' : ''}}" data-id="{{index}}" bind:tap="chooseVipCategory">{{item.name}}</text>
+					</view>
+				</block>
+			</scroll-view>
+		</sticky-header>
+		<grid-view
+		 main-axis-gap="20"
+		 cross-axis-gap="6"
+		 cross-axis-count="2"
+		 type="masonry"
+		>
+			<block wx:for="{{goods}}" wx:key="id">
+				<view class="good">
+					<image mode="widthFix" class="good-icon" src="{{item.icon}}" />
+					<view class="good-title">
+						<text>{{item.title}}</text>
+					</view>
+					<view class="good-comment">
+						<text>3万+评价</text>
+					</view>
+				</view>
+			</block>
+		</grid-view>
+	</sticky-section>
+</scroll-view>
+
