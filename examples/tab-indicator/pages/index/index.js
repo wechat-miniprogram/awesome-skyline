@@ -95,5 +95,13 @@ Component({
         this._lastTranslateX.value = this._translateX.value
       }
     },
+
+    onTabTransitionEnd(evt) {
+      'worklet'
+      this.onTabTransition(evt)
+
+      // end
+      this._lastTranslateX.value = this._translateX.value
+    }
   },
 })

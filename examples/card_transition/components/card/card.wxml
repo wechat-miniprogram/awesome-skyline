@@ -1,6 +1,6 @@
 <!-- 需要先给定高度，微信 8.0.33 后 share-element 将能够撑开高度 -->
 <view class="card" style="height: {{cardWidth / item.imageRatio + 80}}px;" data-index="{{index}}" data-url="{{item.src}}" data-content="{{item.content}}" data-ratio="{{item.imageRatio}}" data-nickname="{{item.nickname}}" bindtap="navigateTo">
-	<share-element key="se-key{{index}}" rect-tween-type="cubic-bezier(0.4, 0.0, 0.2, 1.0)" onFrame="handleFrame" transition-on-gesture="{{true}}" style="width: 100%; height: 100%;">
+	<share-element key="se-key{{index}}" rect-tween-type="cubic-bezier(0.4, 0.0, 0.2, 1.0)" worklet:onframe="handleFrame" transition-on-gesture="{{true}}" style="width: 100%; height: 100%;">
 		<view style="position: relative;">
 			<view class="card_wrap">
 				<image class="card_img" fade-in src="{{item.src}}" style="height: {{cardWidth / item.imageRatio}}px; background-color: {{item.color}};"/>

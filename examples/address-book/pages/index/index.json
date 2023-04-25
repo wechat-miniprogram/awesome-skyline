@@ -4,7 +4,7 @@
     "address-book": "../../components/address-book"
   },
   "disableScroll": true,
-  "//componentFramework": "glass-easel",
+  "componentFramework": "glass-easel",
   "renderer": "skyline",
   "navigationStyle": "custom"
 }

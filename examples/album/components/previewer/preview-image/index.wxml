@@ -1,4 +1,4 @@
-<double-tap-gesture-handler class="double-tap-gesture-handler" onGestureEvent="onDoubleTap">
+<double-tap-gesture-handler class="double-tap-gesture-handler" worklet:ongesture="onDoubleTap">
   <view id="image" class="image-wrapper">
     <image
       wx:if="{{status}}"

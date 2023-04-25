@@ -1,8 +1,8 @@
 <scale-gesture-handler
   tag="scale"
   simultaneousHandlers="{{['swiper']}}"
-  onGestureEvent="onScale"
-  shouldResponseOnMove="shouldResponseOnMove"
+  worklet:ongesture="onScale"
+  worklet:should-response-on-move="shouldResponseOnMove"
 >
   <preview-home
     id="preview-home"

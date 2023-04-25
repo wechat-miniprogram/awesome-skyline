@@ -3,5 +3,5 @@
   "usingComponents": {
     "preview-image": "../preview-image/index"
   },
-  "//componentFramework": "glass-easel"
+  "componentFramework": "glass-easel"
 }

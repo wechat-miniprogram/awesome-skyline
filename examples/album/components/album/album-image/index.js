@@ -131,6 +131,7 @@ Component({
   methods: {
     onFrame(evt) {
       'worklet'
+      console.log('worklet onFrame', evt)
       // 进入预览页的动画，会逐帧调用
       // 在此回调中需要根据当前容器的大小来调整图片的大小，因为图片是自己设置宽高渲染的，不能根据容器宽高自适应
       const rect = evt.current

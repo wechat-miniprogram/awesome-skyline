@@ -1,4 +1,4 @@
-<share-element class="share-element" key="{{image.id}}" rect-tween-type="cubic-bezier(0.4, 0, 0.2, 1.0)" onFrame="onFrame">
+<share-element class="share-element" key="{{image.id}}" rect-tween-type="cubic-bezier(0.4, 0, 0.2, 1.0)" worklet:onframe="onFrame">
   <view class="img-cut-cnt">
     <image class="img" src="{{src}}" mode="aspectFill" bindload="onImageLoad"></image>
   </view>

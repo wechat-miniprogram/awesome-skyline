@@ -2,5 +2,5 @@
   "component": true,
   "usingComponents": {},
   "addGlobalClass": false,
-  "//componentFramework": "glass-easel"
+  "componentFramework": "glass-easel"
 }

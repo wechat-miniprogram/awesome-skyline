@@ -8,16 +8,16 @@
 
 <view class="comment-container">
   <!-- 顶部不参与手势协商，单独控制 -->
-  <pan-gesture-handler on-gesture-event="handlePan" style="flex-shrink: 0;">
+  <pan-gesture-handler worklet:ongesture="handlePan" style="flex-shrink: 0;">
     <view class="comment-header">
       <view class="close-comment" bind:tap="onTapCloseComment">∨</view>
       留言
     </view>
   </pan-gesture-handler>
   <!-- 滚动区要与 pan 手势协商 -->
-  <pan-gesture-handler id="pan" should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" on-gesture-event="handlePan">
-    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
-      <scroll-view class="comment-list" scroll-y adjustDecelerationVelocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
+  <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" worklet:ongesture="handlePan">
+    <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
+      <scroll-view class="comment-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
         <view class="comment-item" wx:for="{{list}}">
           <view class="main-comment">
             <image fade-in class="user-head-img" src="{{item.userHeadImg}}"></image>

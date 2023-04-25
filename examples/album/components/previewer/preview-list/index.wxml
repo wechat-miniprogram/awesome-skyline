@@ -3,9 +3,9 @@
     tag="swiper"
     simultaneousHandlers="{{['scale']}}"
     native-view="swiper"
-    shouldResponseOnMove="shouldResponseOnMove"
+    worklet:should-response-on-move="shouldResponseOnMove"
   >
-    <tap-gesture-handler onGestureEvent="onTapImage">
+    <tap-gesture-handler worklet:ongesture="onTapImage">
       <swiper
         class="swiper-cnt"
         current="{{currentIndex}}"

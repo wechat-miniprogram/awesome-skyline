@@ -1,4 +1,4 @@
-<pan-gesture-handler on-gesture-event="handlePanGesture">
+<pan-gesture-handler worklet:ongesture="handlePanGesture">
 	<view id="fake-host">
 		<view id="page">
 			<view class="navigation-bar">
