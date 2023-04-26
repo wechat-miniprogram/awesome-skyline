@@ -60,8 +60,9 @@ Component({
 
       this.applyAnimatedStyle('.search-container', () => {
         'worklet'
+        console.log('111', this.renderer)
         return {
-          backgroundColor: this.navBarOpactiy.value > 0 ? 'transparent' : '#fff'
+          backgroundColor: (this.navBarOpactiy.value > 0 && this.renderer == 'skyline') ? 'transparent' : '#fff'
         }
       })
     },

@@ -4,7 +4,8 @@
 
 .search-container {
   padding: 44px 16px 10px 16px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: #FFF;
 }
 .search {
   display: flex;
@@ -71,9 +72,10 @@
 }
 
 .nav-title {
-  margin-left: 10px;
-  font-size: 24px;
-  font-weight: bold;
+  margin-left: 2px;
+  font-size: 20px;
+  color: #3f3e3e;
+  /* font-weight: bold; */
 }
 
 .scroll-area {
@@ -82,7 +84,8 @@
 
 .category-wrp {
   height: 220px;
-  margin: 10px 0;
+  padding: 10px 0;
+  background-color: #FFF;
 }
 
 .category-list {
@@ -98,12 +101,14 @@
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
+  font-size: 14px;
 }
 
 .category-icon {
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
 
 .category-name {
@@ -111,6 +116,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.good {
+  background-color: #FFF;
 }
 
 .good-icon {
@@ -122,11 +131,15 @@
   width: 100%;
   line-height: 1.4;
   margin: 8px 0;
+  padding: 0 5px;
+  font-size: 14px;
 }
 
 .good-comment {
   font-size: 12px;
   color: #ccc;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }
 
 .vip-categorys-list {
@@ -139,6 +152,7 @@
   display: flex;
   height: 100%;
   justify-content: center;
+  padding-right: 20px;
 }
 
 .vip-category-name {
@@ -149,6 +163,6 @@
 
 .selected {
   transform: scale(1.2);
-  color: black;
+  color: #2c2c2c;
   font-weight: bold;
 }

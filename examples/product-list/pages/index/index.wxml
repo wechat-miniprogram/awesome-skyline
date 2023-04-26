@@ -1,8 +1,8 @@
 <navigation-bar class="nav-bar" title="" back="{{false}}">
 	<view class="nav-left" slot="left">
-		<image class="nav-logo" mode="aspectFill" src="/images/logo.png" />
+		<image class="nav-logo" mode="aspectFill" src="https://res.wx.qq.com/op_res/1SgOliBW4GtxOSAZAkfH15KF7Tl_n7mgMMqAGT9Ckq8LkYEG7ZrXdcC11ZcNTzSUv91ueYeS4yWw4bp-QHJmkA" />
 		<view class="nav-title">
-			<text>优选好物</text>
+			<text>甄选好物</text>
 		</view>
 	</view>
 </navigation-bar>
@@ -24,7 +24,7 @@
 					<view class="search-icon-wrp">
 						<image class="search-icon" src="/images/search.png" />
 					</view>
-					<view class="search-text">53度贵州老窖酒</view>
+					<view class="search-text">这是skyline实现的～</view>
 					<view class="search-btn">搜索</view>
 				</view>
 			</view>
@@ -59,21 +59,20 @@
 			 scroll-into-view-alignment="center"
 			>
 				<block wx:for="{{vipCategorys}}" wx:key="id">
-					<view class="vip-category-item" style="padding-left: {{index === 0 ? 10 : 60}}px;" id="vip-category-{{index}}">
+					<view class="vip-category-item" style="padding-left: {{index === 0 ? 20 : 40}}px;" id="vip-category-{{index}}">
 						<text class="vip-category-name {{selected === index ? 'selected' : ''}}" data-id="{{index}}" bind:tap="chooseVipCategory">{{item.name}}</text>
 					</view>
 				</block>
 			</scroll-view>
 		</sticky-header>
 		<grid-view
-		 main-axis-gap="20"
 		 cross-axis-gap="6"
 		 cross-axis-count="2"
 		 type="masonry"
 		>
 			<block wx:for="{{goods}}" wx:key="id">
 				<view class="good">
-					<image mode="widthFix" class="good-icon" src="{{item.icon}}" />
+					<image mode="widthFix" class="good-icon" fade-in src="{{item.icon}}" />
 					<view class="good-title">
 						<text>{{item.title}}</text>
 					</view>
