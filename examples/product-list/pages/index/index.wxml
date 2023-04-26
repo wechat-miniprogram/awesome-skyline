@@ -19,7 +19,7 @@
 	<view class="fake-nav-bar" />
 	<sticky-section push-pinned-header="{{false}}">
 		<sticky-header>
-			<view class="search-container" style="padding-top: {{paddingTop}}px;">
+			<view class="search-container" style="{{renderer == 'skyline' ? 'padding' : 'margin'}}-top: {{paddingTop}}px;">
 				<view class="search">
 					<view class="search-icon-wrp">
 						<image class="search-icon" src="/images/search.png" />

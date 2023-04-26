@@ -27,6 +27,7 @@ Component({
       categorys: getCategory().reverse()
     }],
     paddingTop: 44,
+    renderer: 'skyline',
     vipCategorys: getVIPCategory(),
     categoryItemWidth: 0,
     intoView: '',
@@ -37,12 +38,11 @@ Component({
     created() {
       this.searchBarWidth = shared(100)
       this.navBarOpactiy = shared(1)
-
     },
     attached() {
       const padding = 10 * 2
       const categoryItemWidth = (systemInfo.windowWidth - padding) / 5
-      this.setData({ categoryItemWidth, paddingTop: systemInfo.statusBarHeight })
+      this.setData({ categoryItemWidth, paddingTop: systemInfo.statusBarHeight, renderer: this.renderer })
 
       this.applyAnimatedStyle('.nav-bar', () => {
         'worklet'

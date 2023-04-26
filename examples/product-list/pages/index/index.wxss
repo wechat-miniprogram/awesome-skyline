@@ -3,7 +3,8 @@
 }
 
 .search-container {
-  padding: 44px 16px 10px 16px;
+  padding: 0 16px 10px 16px;
+  /* margin-top: 44px; */
   /* background-color: transparent; */
   background-color: #FFF;
 }
