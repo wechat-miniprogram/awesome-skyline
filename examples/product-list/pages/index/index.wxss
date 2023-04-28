@@ -15,7 +15,7 @@
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  border: 2px solid #e63838;
+  border: 2px solid #07c160;
   position: relative;
   align-items: center;
   background-color: #fff;
@@ -46,13 +46,13 @@
   width: 60px;
   height: 100%;
   border-radius: 20px;
-  background-color: #e63838;
+  background-color: #07c160;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #FFF;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .nav-bar {

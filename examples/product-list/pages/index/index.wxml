@@ -1,8 +1,8 @@
 <navigation-bar class="nav-bar" title="" back="{{false}}">
 	<view class="nav-left" slot="left">
-		<image class="nav-logo" mode="aspectFill" src="https://res.wx.qq.com/op_res/1SgOliBW4GtxOSAZAkfH15KF7Tl_n7mgMMqAGT9Ckq8LkYEG7ZrXdcC11ZcNTzSUv91ueYeS4yWw4bp-QHJmkA" />
+		<image class="nav-logo" mode="aspectFill" src="https://res.wx.qq.com/op_res/RBwYn_b7VGuWuLJ2qBChU5TS9E0E2WBIJqkwvK4DV_NdciupZQ58P62ReribRjp3Cn0uqFLZ6v4DC7719-YaeA" />
 		<view class="nav-title">
-			<text>甄选好物</text>
+			<text>微信学堂</text>
 		</view>
 	</view>
 </navigation-bar>
