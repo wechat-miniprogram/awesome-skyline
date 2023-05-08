@@ -87,7 +87,7 @@ view, scroll-view, page, image {
   height: 50px;
 }
 
-.footer input {
+.footer .footer-input {
   flex: 1;
   background-color: #EEE;
   margin-left: 15px;

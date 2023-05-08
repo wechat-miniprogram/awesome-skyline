@@ -56,7 +56,7 @@
 			</scroll-view>
 			<view class="footer">
 				<view class="footer-content">
-					<input placeholder="说点什么..." />
+					<input class="footer-input" placeholder="说点什么..." />
 					<span>
 						<text class="footer-icon">❤️</text>
 						317
