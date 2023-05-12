@@ -3,8 +3,10 @@
 }
 
 .search-container {
-  padding: 44px 16px 10px 16px;
-  background-color: transparent;
+  padding: 0 16px 10px 16px;
+  /* margin-top: 44px; */
+  /* background-color: transparent; */
+  background-color: #FFF;
 }
 .search {
   display: flex;
@@ -13,7 +15,7 @@
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  border: 2px solid #e63838;
+  border: 2px solid #07c160;
   position: relative;
   align-items: center;
   background-color: #fff;
@@ -44,13 +46,13 @@
   width: 60px;
   height: 100%;
   border-radius: 20px;
-  background-color: #e63838;
+  background-color: #07c160;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #FFF;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .nav-bar {
@@ -71,9 +73,10 @@
 }
 
 .nav-title {
-  margin-left: 10px;
-  font-size: 24px;
-  font-weight: bold;
+  margin-left: 2px;
+  font-size: 20px;
+  color: #3f3e3e;
+  /* font-weight: bold; */
 }
 
 .scroll-area {
@@ -82,7 +85,8 @@
 
 .category-wrp {
   height: 220px;
-  margin: 10px 0;
+  padding: 10px 0;
+  background-color: #FFF;
 }
 
 .category-list {
@@ -98,12 +102,14 @@
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
+  font-size: 14px;
 }
 
 .category-icon {
   width: 50px;
   height: 50px;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
 
 .category-name {
@@ -111,6 +117,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.good {
+  background-color: #FFF;
 }
 
 .good-icon {
@@ -122,11 +132,15 @@
   width: 100%;
   line-height: 1.4;
   margin: 8px 0;
+  padding: 0 5px;
+  font-size: 14px;
 }
 
 .good-comment {
   font-size: 12px;
   color: #ccc;
+  padding-left: 5px;
+  margin-bottom: 10px;
 }
 
 .vip-categorys-list {
@@ -139,6 +153,7 @@
   display: flex;
   height: 100%;
   justify-content: center;
+  padding-right: 20px;
 }
 
 .vip-category-name {
@@ -149,7 +164,7 @@
 
 .selected {
   transform: scale(1.2);
-  color: black;
+  color: #2c2c2c;
   font-weight: bold;
 }
 
