@@ -1,8 +1,10 @@
-import { getCategory, getGoods, getVIPCategory } from '../../util'
+import { getCategory, getGoods, getVIPCategory, getExpCategory, getVideoList } from '../../util'
 
 const systemInfo = wx.getSystemInfoSync()
 
 const { shared, Easing } = wx.worklet
+
+const EasingFn = Easing.cubicBezier(0.4, 0.0, 0.2, 1.0)
 
 const lerp = function (begin, end, t) {
   'worklet'
@@ -18,6 +20,7 @@ const clamp = function (cur, lowerBound, upperBound) {
 
 Component({
   data: {
+    triggered: false,
     goods: getGoods(30),
     categorySet: [{
       page: 0,
@@ -28,9 +31,13 @@ Component({
     }],
     paddingTop: 44,
     vipCategorys: getVIPCategory(),
+    expCategorys: getExpCategory(),
     categoryItemWidth: 0,
     intoView: '',
-    selected: 0
+    selected: 0,
+    expSelected: 0,
+    padding: [0, 16, 0, 16],
+    videoList: getVideoList(20),
   },
 
   lifetimes: {
@@ -85,15 +92,38 @@ Component({
       'worklet'
       const maxDistance = 60
       const scrollTop = clamp(evt.detail.scrollTop, 0, maxDistance)
-      const progress = scrollTop / maxDistance
-      const EasingFn = Easing.cubicBezier(0.4, 0.0, 0.2, 1.0)
-      this.searchBarWidth.value = lerp(100, 70, EasingFn(progress))
+      const progress = EasingFn(scrollTop / maxDistance)
+      this.searchBarWidth.value = lerp(100, 70, progress)
       this.navBarOpactiy.value = lerp(1, 0, progress)
     },
 
     handleScrollEnd(evt) {
       'worklet'
-    }
+    },
+
+    onPulling(e) {
+      // console.log('onPulling:', e)
+    },
+  
+    onRefresh() {
+      console.info('@@@ onRefresh')
+      if (this._freshing) return
+      this._freshing = true
+      setTimeout(() => {
+        this.setData({
+          triggered: false,
+        })
+        this._freshing = false
+      }, 3000)
+    },
+  
+    onRestore(e) {
+      console.log('onRestore:', e)
+    },
+  
+    onAbort(e) {
+      console.log('onAbort', e)
+    },
 
   },
 })

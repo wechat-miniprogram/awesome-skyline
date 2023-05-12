@@ -123,6 +123,9 @@ Component({
     },
   },
   methods: {
+    back() {
+      wx.navigateBack({})
+    },
     handlePanGesture(e) {
       'worklet'
       const {

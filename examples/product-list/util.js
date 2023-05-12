@@ -50,3 +50,34 @@ export function getVIPCategory() {
   }))
   return vipCategorys
 }
+
+export function getExpCategory() {
+  let expCategorys = [
+    '推荐',
+    '换新精选',
+    'AR体验',
+    '数字作品'
+  ]
+  expCategorys = expCategorys.map((name, id) => ({
+    id,
+    name
+  }))
+  return expCategorys
+}
+
+export function getVideoList(num) {
+  const titles = [
+    '酷跑春天·跑鞋新品发布会',
+    '直接全球气候变化',
+    '幻想奇遇·3D音乐节'
+  ]
+  const videos = []
+  for (let id = 0; id < num; id++) {
+    videos.push({
+      id,
+      title: titles[(id % titles.length)],
+      url: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
+    })
+  }
+  return videos
+}

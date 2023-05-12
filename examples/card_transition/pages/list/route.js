@@ -150,6 +150,7 @@ const ScaleTransitionRouteBuilder = (routeContext) => {
   return {
     opaque: false,
     handlePrimaryAnimation,
+    popGestureEnabled: true,
     transitionDuration: 250,
     reverseTransitionDuration: 250,
     canTransitionTo: false,

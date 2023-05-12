@@ -19,7 +19,11 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "useCompilerPlugins": [
+      "typescript",
+      "less"
+    ]
   },
   "condition": {},
   "editorSetting": {

@@ -12,6 +12,14 @@
  type="custom"
  scroll-y
  show-scrollbar="{{false}}"
+ refresher-enabled="{{true}}"
+ refresher-threshold="{{80}}"
+ refresher-default-style="none"
+ refresher-background="lightgreen"
+ bind:refresherpulling="onPulling"
+ bind:refresherrefresh="onRefresh"
+ bind:refresherrestore="onRestore"
+ bind:refresherabort="onAbort"
  worklet:onstartstart="handleScrollStart"
  worklet:onscrollupdate="handleScrollUpdate"
  worklet:onscrollend="handleScrollEnd"
@@ -47,7 +55,7 @@
 		</swiper>
 	</sticky-section>
 
-	<sticky-section push-pinned-header="{{false}}" padding="{{[0, 16, 0, 16]}}">
+	<sticky-section push-pinned-header="{{false}}" padding="{{padding}}">
 		<sticky-header>
 			<scroll-view
 			 class="vip-categorys-list"
@@ -85,4 +93,37 @@
 		</grid-view>
 	</sticky-section>
 </scroll-view>
+
+<view class="exp-room">
+	<navigation-bar class="nav-bar" title="" back="{{false}}">
+		<view class="nav-left" slot="left">
+			<image class="nav-logo" mode="aspectFill" src="/images/back_delete.png" />
+			<view class="nav-title">
+				<text>体验空间</text>
+			</view>
+		</view>
+	</navigation-bar>
+	<view class="exp-category-list">
+		<block wx:for="{{expCategorys}}" wx:key="id">
+			<view class="exp-category-item">
+				<text class="exp-category-name {{expSelected === index ? 'selected' : ''}}">{{item.name}}</text>
+			</view>
+		</block>
+	</view>
+	<scroll-view
+	 class="scroll-area"
+	 type="list"
+	 scroll-y
+	 padding="{{padding}}"
+	 show-scrollbar="{{false}}"
+	>
+		<block wx:for="{{videoList}}" wx:key="id">
+			<view class="video-container">
+				<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
+				<view class="video" style="background-color: green;" />
+				<view class="video-title">{{item.title}}</view>
+			</view>
+		</block>
+	</scroll-view>
+</view>
 
