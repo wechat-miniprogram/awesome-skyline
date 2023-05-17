@@ -1,0 +1,169 @@
+.fake-nav-bar {
+  height: 60px;
+}
+
+.search-container {
+  padding: 0 16px 10px 16px;
+  /* margin-top: 44px; */
+  /* background-color: transparent; */
+  background-color: #FFF;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid #07c160;
+  position: relative;
+  align-items: center;
+  background-color: #fff;
+}
+
+.search-text {
+  color: #8f8888;
+  font-size: 14px;
+}
+
+.search-icon-wrp {
+  display: flex;
+  width: 30px;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  border-radius: 20px;
+  background-color: #07c160;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 16px;
+  /* font-weight: bold; */
+}
+
+.nav-bar {
+  background-color: #fff;
+  position: absolute;
+}
+
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.nav-title {
+  margin-left: 2px;
+  font-size: 20px;
+  color: #3f3e3e;
+  /* font-weight: bold; */
+}
+
+.scroll-area {
+  height: 100vh;
+}
+
+.category-wrp {
+  height: 220px;
+  padding: 10px 0;
+  background-color: #FFF;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.category-name {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.good {
+  background-color: #FFF;
+}
+
+.good-icon {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.good-title {
+  width: 100%;
+  line-height: 1.4;
+  margin: 8px 0;
+  padding: 0 5px;
+  font-size: 14px;
+}
+
+.good-comment {
+  font-size: 12px;
+  color: #ccc;
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
+
+.vip-categorys-list {
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+}
+
+.vip-category-item {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.vip-category-name {
+  color: #8f8888;
+  font-size: 16px;
+  transition: transform .3s;
+}
+
+.selected {
+  transform: scale(1.2);
+  color: #2c2c2c;
+  font-weight: bold;
+}
