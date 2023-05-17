@@ -1,0 +1,118 @@
+<view class="navigation-bar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navigation-bar-content {{expand ? 'black' : 'white'}}">
+    <view class="back">ㄑ</view>
+    <view class="search"><view class="search-input">请输入课程名称</view></view>
+    <view class="more"></view>
+  </view>
+</view>
+
+<pan-gesture-handler
+  tag="pan"
+  simultaneousHandlers="{{['scroll-view']}}"
+  shouldResponseOnMove="shouldPanResponse"
+  onGestureEvent="handlePan"
+>
+  <view class="page">
+    <view class="header">
+      <image class="header-banner" src="https://res.wx.qq.com/op_res/6eQ8-k5PlDq7oIfHRTI1-ypWYiTfqCEMVGNUfVixvh1WCMXbQsPi5NSd9dlpzweXM_meCc7diXE5ZinaY-Fo-A"></image>
+      <view class="header-shop-outer">
+        <view class="header-shop-inner">
+          <view class="header-shop-name">微信学堂</view>
+          <view class="header-shop-info">
+            <view class="header-shop-info-simple">
+              <view class="header-shop-data">
+                <text>⭐️ 5.0</text><text>66万人学过</text><text>好评度100%</text>
+              </view>
+              <!-- <view class="header-shop-tags"><text>官方课程</text></view> -->
+              <view class="header-shop-coupon">
+                <text>开发</text><text>行业</text><text>服务商</text>
+              </view>
+            </view>
+            <view class="header-shop-info-detail">
+              <view class="header-shop-data">
+                <text>⭐️ 5.0</text><text>66万人学过</text><text>好评度100%</text>
+              </view>
+              <view class="header-shop-tags"><text>视频讲解、代码演示、文档一应俱全</text></view>
+              <view class="header-shop-coupon">
+                <view class="title">热门活动</view>
+                <view class="header-shop-coupon-item">
+                  <view class="header-shop-coupon-discount">开发</view>
+                  <text>小程序开发从入门到进阶</text>
+                </view>
+                <view class="header-shop-coupon-item">
+                  <view class="header-shop-coupon-discount">行业</view>
+                  <text>线上运营方法论</text>
+                </view>
+                <view class="header-shop-coupon-item">
+                  <view class="header-shop-coupon-discount">服务商</view>
+                  <text>如何成为微信服务商</text>
+                </view>
+              </view>
+              <view class="header-shop-announcement">
+                <view class="title">公告</view>
+                <view class="header-shop-announcement-content">
+                  「微信学堂」已经上线了 70+ 门专题课程，支持小程序、公众号、企业微信、视频号等产品能力，帮助广大开发者和商家共同成长。<br/>
+                  商超零售、房地产、餐饮、酒旅、医疗... 「微信学堂」提供超过10个行业的经营教程。报名成为“微信小程序行业伙伴”，还有机会参加每月的闭门交流会，获取官方一手信息。
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="main">
+      <view class="main-banner">
+        <image mode="widthFix" src="https://res.wx.qq.com/op_res/Gnr7xWUyNQyvf47WmPbKKCtaVNNyqiH61l5dcIBQUKifZeRA-fcA13QZ0IjqUZf7nUnj5ObWm7PusO8OIwyOug" bind:load="onBannerLoaded"></image>
+      </view>
+      <view class="tabs">
+        <view class="tabs-list">
+          <text>课程</text>
+          <text>评价</text>
+        </view>
+        <view class="tabs-indicator"></view>
+      </view>
+      <view class="product">
+        <view class="product-category">
+          <view wx:for="{{categories}}" wx:key="index" class="product-category-item {{selected === index ? 'selected' : ''}}">{{item}}</view>
+        </view>
+        <vertical-drag-gesture-handler
+          tag="scroll-view"
+          native-view="scroll-view"
+          simultaneousHandlers="{{['pan']}}"
+          shouldResponseOnMove="shouldScrollViewResponse"
+        >
+          <scroll-view
+            class="product-list"
+            type="custom"
+            scroll-y
+            show-scrollbar="{{false}}"
+            adjustDecelerationVelocity="adjustDeceleration"
+            bindscroll="handleScroll"
+          >
+            <sticky-section wx:for="{{list}}" wx:key="index">
+              <sticky-header>
+                <view class="product-group">{{item.header}}</view>
+              </sticky-header>
+              <list-view>
+                <view class="product-item" wx:for="{{item.data}}" wx:key="index" wx:for-item="subItem">
+                  <image class="product-image" fade-in src="{{subItem.image}}"></image>
+                  <view class="product-info">
+                    <view class="product-name">{{subItem.name}}</view>
+                    <view class="product-comment"><text>{{subItem.comment}}</text></view>
+                    <view class="product-data"><text>{{subItem.sales}}人学过</text><text>好评度100%</text></view>
+                    <span class="product-price">
+                      <text style="font-size: 10px;">¥</text>
+                      <text style="font-size: 16px; font-weight: bold;">{{subItem.price}}</text>
+                      <text style="color: gray;"> 起</text>
+                    </span>
+                  </view>
+                  <view class="product-add-to-cart">+</view>
+                </view>
+              </list-view>
+            </sticky-section>
+          </scroll-view>
+        </vertical-drag-gesture-handler>
+      </view>
+    </view>
+  </view>
+</pan-gesture-handler>
