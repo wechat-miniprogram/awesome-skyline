@@ -1,5 +1,17 @@
 import { getCategory, getGoods, getVIPCategory, getExpCategory, getVideoList } from '../../util'
 
+export enum RefreshStatus {
+  Idle,
+  CanRefresh,
+  Refreshing,
+  Completed,
+  Failed,
+  CanTwoLevel,
+  TwoLevelOpening,
+  TwoLeveling,
+  TwoLevelClosing,
+}
+
 const systemInfo = wx.getSystemInfoSync()
 
 const { shared, Easing } = wx.worklet
@@ -18,9 +30,11 @@ const clamp = function (cur, lowerBound, upperBound) {
   return cur
 }
 
+const secondFloorCover = 'https://res.wx.qq.com/op_res/6Wt8f05P0Icnti4PBLtxfxza5VkItUCF1dQ6clDNr6c9KJxvxQMzWmJdkKXqHjOFjLp2fQAPV0JG1X6DwqGjyg'
+
+
 Component({
   data: {
-    triggered: false,
     goods: getGoods(30),
     categorySet: [{
       page: 0,
@@ -32,13 +46,29 @@ Component({
     paddingTop: 44,
     renderer: 'skyline',
     vipCategorys: getVIPCategory(),
-    expCategorys: getExpCategory(),
     categoryItemWidth: 0,
     intoView: '',
     selected: 0,
-    expSelected: 0,
     padding: [0, 16, 0, 16],
+    expSelected: 0,
+    expCategorys: getExpCategory(),
     videoList: getVideoList(20),
+    triggered: false,
+    twoLevelTriggered: false,
+    isTwoLevel: false,
+    refreshStatus: '下拉刷新',
+
+    secondFloorCover,
+    twoLevelStyle: 1,
+  },
+
+  pageLifetimes: {
+    hide() {
+      console.info('@@@ lifetime hide: ', Date.now())
+      if (this.data.twoLevelStyle === 2) {
+        this.closeTwoLevel()
+      }
+    }
   },
 
   lifetimes: {
@@ -76,6 +106,11 @@ Component({
   },
 
   methods: {
+    toggleTwoLevelStyle() {
+      this.setData({
+        twoLevelStyle: this.data.twoLevelStyle === 1 ? 2 : 1
+      })
+    },
     chooseVipCategory(evt) {
       const id = evt.currentTarget.dataset.id
       this.setData({
@@ -115,7 +150,7 @@ Component({
           triggered: false,
         })
         this._freshing = false
-      }, 3000)
+      }, 2000)
     },
   
     onRestore(e) {
@@ -126,5 +161,45 @@ Component({
       console.log('onAbort', e)
     },
 
+    closeTwoLevel() {
+      this.setData({
+        twoLevelTriggered: false,
+      })
+    },
+
+    onModeChange(e) {
+      const mode: RefreshStatus = e.detail.mode
+      const twoLevelModes = [RefreshStatus.TwoLevelOpening, RefreshStatus.TwoLeveling, RefreshStatus.TwoLevelClosing]
+      const isTwoLevel = twoLevelModes.indexOf(mode) >= 0
+      const refreshStatus = this.buildText(mode)
+      this.setData({
+        isTwoLevel,
+        refreshStatus,
+      })
+      if (this.data.twoLevelStyle === 2 && mode === RefreshStatus.TwoLeveling) {
+        wx.navigateTo({
+          url: '../goods/index'
+        })
+      }
+    },
+
+    buildText(mode: RefreshStatus) {
+      switch (mode) {
+        case RefreshStatus.Idle:
+          return '下拉刷新'
+        case RefreshStatus.CanRefresh:
+          return '松手刷新，下拉进入二楼'
+        case RefreshStatus.Refreshing:
+          return '正在刷新'
+        case RefreshStatus.Completed:
+          return '刷新成功'
+        case RefreshStatus.Failed:
+          return '刷新失败'
+        case RefreshStatus.CanTwoLevel:
+          return '松手进入二楼'
+        default:
+          return ''
+      }
+    },
   },
 })

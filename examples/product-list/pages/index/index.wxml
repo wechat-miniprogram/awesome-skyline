@@ -15,24 +15,67 @@
  refresher-enabled="{{true}}"
  refresher-threshold="{{80}}"
  refresher-default-style="none"
- refresher-background="lightgreen"
+ refresher-triggered="{{triggered}}"
+ two-level-enabled
+ two-level-threshold="{{150.0}}"
+ two-level-triggered="{{twoLevelTriggered}}"
  bind:refresherpulling="onPulling"
  bind:refresherrefresh="onRefresh"
  bind:refresherrestore="onRestore"
  bind:refresherabort="onAbort"
+ bind:modechange="onModeChange"
  worklet:onstartstart="handleScrollStart"
  worklet:onscrollupdate="handleScrollUpdate"
  worklet:onscrollend="handleScrollEnd"
 >
+	<view slot="refresher" class="exp-room">
+		<view class="expand" wx:if="{{isTwoLevel && twoLevelStyle === 1}}">
+			<navigation-bar class="nav-bar" title="" back="{{false}}">
+				<view class="nav-left" slot="left" bind:tap="closeTwoLevel">
+					<image class="nav-logo" mode="aspectFill" src="/images/back_delete.png" />
+					<view class="nav-title">
+						<text>体验空间</text>
+					</view>
+				</view>
+			</navigation-bar>
+			<view class="exp-category-list">
+				<block wx:for="{{expCategorys}}" wx:key="id">
+					<view class="exp-category-item">
+						<text class="exp-category-name {{expSelected === index ? 'selected' : ''}}">{{item.name}}</text>
+					</view>
+				</block>
+			</view>
+			<scroll-view
+			 class="scroll-area"
+			 type="list"
+			 scroll-y
+			 padding="{{padding}}"
+			 show-scrollbar="{{false}}"
+			>
+				<block wx:for="{{videoList}}" wx:key="id">
+					<view class="video-container">
+						<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
+						<view class="video" style="background-color: green;" />
+						<view class="video-title">{{item.title}}</view>
+					</view>
+				</block>
+			</scroll-view>
+		</view>
+		<view class="expand" wx:else>
+      <image wx:if="{{twoLevelStyle === 2}}" class="expand" src="{{secondFloorCover}}"></image>
+			<view class="refresher-tips">{{refreshStatus}}</view>
+		</view>
+	</view>
+
 	<view class="fake-nav-bar" />
 	<sticky-section push-pinned-header="{{false}}">
 		<sticky-header>
-			<view class="search-container" style="{{renderer == 'skyline' ? 'padding' : 'margin'}}-top: {{paddingTop}}px;">
+			<view bind:tap="jumpNextPage" bind:longpress="toggleTwoLevelStyle" class="search-container" style="{{renderer == 'skyline' ? 'padding' : 'margin'}}-top: {{paddingTop}}px;">
 				<view class="search">
 					<view class="search-icon-wrp">
 						<image class="search-icon" src="/images/search.png" />
 					</view>
-					<view class="search-text">这是skyline实现的～</view>
+					<view class="search-text">这是skyline实现的～{{twoLevelStyle}}</view>
 					<view class="search-btn">搜索</view>
 				</view>
 			</view>
@@ -73,14 +116,15 @@
 				</block>
 			</scroll-view>
 		</sticky-header>
-		<grid-view
-		 cross-axis-gap="6"
-		 cross-axis-count="2"
-		 type="masonry"
-		>
+		<grid-view cross-axis-gap="6" cross-axis-count="2" type="masonry">
 			<block wx:for="{{goods}}" wx:key="id">
 				<view class="good">
-					<image mode="widthFix" class="good-icon" fade-in src="{{item.icon}}" />
+					<image
+					 mode="widthFix"
+					 class="good-icon"
+					 fade-in
+					 src="{{item.icon}}"
+					/>
 					<view class="good-title">
 						<text>{{item.title}}</text>
 					</view>
@@ -92,37 +136,4 @@
 		</grid-view>
 	</sticky-section>
 </scroll-view>
-
-<view class="exp-room">
-	<navigation-bar class="nav-bar" title="" back="{{false}}">
-		<view class="nav-left" slot="left">
-			<image class="nav-logo" mode="aspectFill" src="/images/back_delete.png" />
-			<view class="nav-title">
-				<text>体验空间</text>
-			</view>
-		</view>
-	</navigation-bar>
-	<view class="exp-category-list">
-		<block wx:for="{{expCategorys}}" wx:key="id">
-			<view class="exp-category-item">
-				<text class="exp-category-name {{expSelected === index ? 'selected' : ''}}">{{item.name}}</text>
-			</view>
-		</block>
-	</view>
-	<scroll-view
-	 class="scroll-area"
-	 type="list"
-	 scroll-y
-	 padding="{{padding}}"
-	 show-scrollbar="{{false}}"
-	>
-		<block wx:for="{{videoList}}" wx:key="id">
-			<view class="video-container">
-				<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
-				<view class="video" style="background-color: green;" />
-				<view class="video-title">{{item.title}}</view>
-			</view>
-		</block>
-	</scroll-view>
-</view>
 
