@@ -17,7 +17,13 @@
 						</view>
 					</block>
 				</view>
-				<scroll-view class="scroll-area" type="list" scroll-y padding="{{padding}}" show-scrollbar="{{false}}">
+				<scroll-view
+				 class="scroll-area"
+				 type="list"
+				 scroll-y
+				 padding="{{padding}}"
+				 show-scrollbar="{{false}}"
+				>
 					<block wx:for="{{videoList}}" wx:key="id">
 						<view class="video-container">
 							<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
@@ -30,3 +36,4 @@
 		</view>
 	</view>
 </template>
+

@@ -8,7 +8,29 @@
 	</view>
 </navigation-bar>
 
-<scroll-view id="scrollview" class="scroll-area" type="custom" scroll-y show-scrollbar="{{false}}" refresher-enabled="{{true}}" refresher-threshold="{{80}}" refresher-default-style="none" refresher-triggered="{{triggered}}" pinned-when-open-two-level="{{false}}" refresher-two-level-enabled refresher-two-level-threshold="{{150.0}}" refresher-two-level-triggered="{{twoLevelTriggered}}" bind:refresherpulling="onPulling" bind:refresherrefresh="onRefresh" bind:refresherrestore="onRestore" bind:refresherabort="onAbort" bind:refresherstatuschange="onStatusChange" worklet:onstartstart="handleScrollStart" worklet:onscrollupdate="handleScrollUpdate" worklet:onscrollend="handleScrollEnd">
+<scroll-view
+ id="scrollview"
+ class="scroll-area"
+ type="custom"
+ scroll-y
+ show-scrollbar="{{false}}"
+ refresher-enabled="{{true}}"
+ refresher-threshold="{{80}}"
+ refresher-default-style="none"
+ refresher-triggered="{{triggered}}"
+ pinned-when-open-two-level="{{false}}"
+ refresher-two-level-enabled
+ refresher-two-level-threshold="{{150.0}}"
+ refresher-two-level-triggered="{{twoLevelTriggered}}"
+ bind:refresherpulling="onPulling"
+ bind:refresherrefresh="onRefresh"
+ bind:refresherrestore="onRestore"
+ bind:refresherabort="onAbort"
+ bind:refresherstatuschange="onStatusChange"
+ worklet:onstartstart="handleScrollStart"
+ worklet:onscrollupdate="handleScrollUpdate"
+ worklet:onscrollend="handleScrollEnd"
+>
 	<view slot="refresher" class="exp-room">
 		<block wx:if="{{isTwoLevel}}">
 			<view class="exp-room">
@@ -28,7 +50,13 @@
 							</view>
 						</block>
 					</view>
-					<scroll-view class="scroll-area" type="list" scroll-y padding="{{padding}}" show-scrollbar="{{false}}">
+					<scroll-view
+					 class="scroll-area"
+					 type="list"
+					 scroll-y
+					 padding="{{padding}}"
+					 show-scrollbar="{{false}}"
+					>
 						<block wx:for="{{videoList}}" wx:key="id">
 							<view class="video-container">
 								<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
@@ -78,7 +106,15 @@
 	</sticky-section>
 	<sticky-section push-pinned-header="{{false}}" padding="{{padding}}">
 		<sticky-header>
-			<scroll-view class="vip-categorys-list" scroll-x type="list" show-scrollbar="{{false}}" scroll-with-animation scroll-into-view="{{intoView}}" scroll-into-view-alignment="center">
+			<scroll-view
+			 class="vip-categorys-list"
+			 scroll-x
+			 type="list"
+			 show-scrollbar="{{false}}"
+			 scroll-with-animation
+			 scroll-into-view="{{intoView}}"
+			 scroll-into-view-alignment="center"
+			>
 				<block wx:for="{{vipCategorys}}" wx:key="id">
 					<view class="vip-category-item" style="padding-left: {{index === 0 ? 20 : 40}}px;" id="vip-category-{{index}}">
 						<text class="vip-category-name {{selected === index ? 'selected' : ''}}" data-id="{{index}}" bind:tap="chooseVipCategory">
@@ -91,7 +127,12 @@
 		<grid-view cross-axis-gap="6" cross-axis-count="2" type="masonry">
 			<block wx:for="{{goods}}" wx:key="id">
 				<view class="good">
-					<image mode="widthFix" class="good-icon" fade-in src="{{item.icon}}" />
+					<image
+					 mode="widthFix"
+					 class="good-icon"
+					 fade-in
+					 src="{{item.icon}}"
+					/>
 					<view class="good-title">
 						<text>{{item.title}}</text>
 					</view>
@@ -103,3 +144,4 @@
 		</grid-view>
 	</sticky-section>
 </scroll-view>
+

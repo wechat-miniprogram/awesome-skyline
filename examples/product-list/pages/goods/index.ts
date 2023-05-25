@@ -24,7 +24,7 @@ Page({
    */
 
   onRouteDone() {
-    console.info('@@@ lifetime routeDone ', Date.now())
+    console.info('@@@ goods page routeDone ')
     this.setData({
       'goodsData.hasRouteDone': true,
     })

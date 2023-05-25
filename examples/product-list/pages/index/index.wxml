@@ -3,3 +3,4 @@
 	<button type="primary" class="btn" bind:tap="jump2"> demo-2 松手后立即跳转下一页</button>
 	<button type="primary" class="btn" bind:tap="jump3"> demo-3 完全打开二楼后跳转下一页</button>
 </view>
+

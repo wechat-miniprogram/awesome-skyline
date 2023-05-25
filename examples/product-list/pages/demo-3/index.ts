@@ -179,11 +179,10 @@ Component({
           url: '../goods/index',
           events: {
             nextPageRouteDone: function(data) {
-              console.info('@@@ nextPageRouteDone')
+              console.info('@@@ next page has routeDone')
               that.scrollContext.closeTwoLevel({
                 duration: 1
               })
-              console.info('@@@ closeTwoLevel done ')
             }
           },
           success(res) {}
@@ -206,7 +205,7 @@ Component({
         case RefreshStatus.CanTwoLevel:
           return '松手进入二楼'
         default:
-          return ''
+          return '进入二楼'
       }
     },
   },

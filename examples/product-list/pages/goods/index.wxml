@@ -1,4 +1,4 @@
-<import src="../goods.wxml"/>
+<import src="../goods.wxml" />
 
-<template is="goods" data="{{...goodsData}}"/>
+<template is="goods" data="{{...goodsData}}" />
 

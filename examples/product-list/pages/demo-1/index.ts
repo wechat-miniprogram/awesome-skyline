@@ -96,7 +96,7 @@ Component({
       .select('#scrollview')
       .node()
       .exec((res) => {
-        console.info('@@@ createSelectorQuery ', res)
+        console.info('@@@ create scrollContext ', res)
         this.scrollContext = res[0].node;
       })
     },
@@ -154,9 +154,13 @@ Component({
     },
 
     closeTwoLevel() {
-      this.setData({
-        twoLevelTriggered: false,
+      this.scrollContext.closeTwoLevel({
+        duration: 300,
       })
+      // 设置 twoLevelTriggered: false 也可以关闭二楼
+      // this.setData({
+      //   twoLevelTriggered: false,
+      // })
     },
 
     onStatusChange(e) {
