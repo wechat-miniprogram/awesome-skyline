@@ -7,9 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    expSelected: 0,
-    expCategorys: [],
-    videoList: [],
+    goodsData: {
+      expSelected: 0,
+      expCategorys: getExpCategory(),
+      videoList: getVideoList(20),
+      hasRouteDone: false,
+    }
   },
 
   back() {
@@ -22,15 +25,16 @@ Page({
 
   onRouteDone() {
     console.info('@@@ lifetime routeDone ', Date.now())
+    this.setData({
+      'goodsData.hasRouteDone': true,
+    })
+    if (this.eventChannel) {
+      this.eventChannel.emit('nextPageRouteDone', { });
+    }
   },
 
   onLoad() {
-    setTimeout(() => {
-      this.setData({
-        expCategorys: getExpCategory(),
-        videoList: getVideoList(20),
-      })
-    }, 300)
+    this.eventChannel = this.getOpenerEventChannel()
   },
 
   /**

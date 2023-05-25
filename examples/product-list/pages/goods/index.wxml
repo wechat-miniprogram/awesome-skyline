@@ -1,35 +1,4 @@
-<view class="exp-room">
-	<view class="expand">
-		<navigation-bar class="nav-bar" title="" back="{{false}}">
-			<view class="nav-left" slot="left" bind:tap="back">
-				<image class="nav-logo" mode="aspectFill" src="/images/back_delete.png" />
-				<view class="nav-title">
-					<text>体验空间</text>
-				</view>
-			</view>
-		</navigation-bar>
-		<view class="exp-category-list">
-			<block wx:for="{{expCategorys}}" wx:key="id">
-				<view class="exp-category-item">
-					<text class="exp-category-name {{expSelected === index ? 'selected' : ''}}">{{item.name}}</text>
-				</view>
-			</block>
-		</view>
-		<scroll-view
-		 class="scroll-area"
-		 type="list"
-		 scroll-y
-		 padding="{{padding}}"
-		 show-scrollbar="{{false}}"
-		>
-			<block wx:for="{{videoList}}" wx:key="id">
-				<view class="video-container">
-					<!-- <video class="video" src="{{item.url}}" object-fit="cover" /> -->
-					<view class="video" style="background-color: green;" />
-					<view class="video-title">{{item.title}}</view>
-				</view>
-			</block>
-		</scroll-view>
-	</view>
-</view>
+<import src="../goods.wxml"/>
+
+<template is="goods" data="{{...goodsData}}"/>
 
