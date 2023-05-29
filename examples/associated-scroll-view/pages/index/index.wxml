@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="navigation-bar">
+  <view class="navigation-bar-content black">
+    <view class="back">ㄑ</view>
+    <view class="search"><view class="search-input">请输入课程名称</view></view>
+    <view class="more"></view>
+  </view>
+</view>
+<view class="first-category">
+  <scroll-view class="first-category-list"
+   scroll-x
+   type="list"
+   show-scrollbar="{{false}}"
+   enable-flex
+  >
+    <view class="first-category-item" wx:for="{{categories}}" wx:key="index" list-item>
+      <image class="first-category-item-image" mode="aspectFill" src="{{item.image}}"></image>
+      <view class="first-category-item-name">{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class="main">
+  <view class="second-category">
+    <view wx:for="{{categories}}" wx:key="index" class="second-category-item {{selected === index ? 'selected' : ''}}">{{item.name}}</view>
+  </view>
+  <vertical-drag-gesture-handler
+   tag="swiper"
+   native-view="swiper"
+   simultaneous-handlers="{{['scroll-view-0', 'scroll-view-1']}}"
+   worklet:should-response-on-move="shouldSwiperResp"
+  >
+    <swiper class="product-list-wrapper" vertical cache-extent="1" bind:change="onChange" worklet:onscrollstart="onSwiperStart" worklet:onscrollend="onSwiperEnd">
+      <swiper-item wx:for="{{categories}}" wx:key="index">
+      <category-list class="category-list" products="{{products}}" max="{{categories.length}}" index="{{index}}" />
+      </swiper-item>
+    </swiper>
+  </vertical-drag-gesture-handler>
+</view>

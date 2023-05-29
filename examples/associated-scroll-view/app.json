@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "defaultDisplayBlock": true
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json"
+}
