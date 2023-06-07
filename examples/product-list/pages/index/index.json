@@ -4,5 +4,6 @@
   },
   "disableScroll": true,
   "renderer": "skyline",
-  "navigationStyle": "custom"
+  "navigationStyle": "custom",
+  "componentFramework": "glass-easel"
 }
