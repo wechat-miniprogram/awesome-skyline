@@ -144,6 +144,7 @@ Component({
     },
     handlePan(e) {
       'worklet'
+      const _interactionState = this._interactionState
       if (this._interactionState.value === InteractionState.ANIMATING) {
         return
       }
@@ -167,7 +168,7 @@ Component({
             this._interactionState.value = InteractionState.ANIMATING
             this._translY.value = timing(0.0, { duration: 250 }, () => {
               'worklet'
-              this._interactionState.value = InteractionState.RESET
+              _interactionState.value = InteractionState.RESET
             })
           }
         } else {
@@ -182,14 +183,14 @@ Component({
           this._interactionState.value = InteractionState.ANIMATING
           this._translY.value = timing(this._mainHeight.value, { duration: 250 }, () => {
             'worklet'
-            this._interactionState.value = InteractionState.UNFOLD
+            _interactionState.value = InteractionState.UNFOLD
           })
         } else if (this._translY.value > 0) {
           // 没超过 100 但还在下拉状态就回弹
           this._interactionState.value = InteractionState.ANIMATING
           this._translY.value = timing(0.0, { duration: 250 }, () => {
             'worklet'
-            this._interactionState.value = InteractionState.INITIAL
+            _interactionState.value = InteractionState.INITIAL
           })
         } else if (this._translY.value > -this._tabsTop.value) {
           // 往上滑就做滚动动画
@@ -205,12 +206,13 @@ Component({
     },
     handleScroll(e) {
       'worklet'
+      const _interactionState = this._interactionState
       this._scrollTop.value = e.detail.scrollTop
       if (this._scrollTop.value < 0 && !e.detail.isDrag && !this._canPan.value && this._interactionState.value !== InteractionState.ANIMATING) {
         this._interactionState.value = InteractionState.ANIMATING
         this._translY.value = timing(0.0, { duration: 250 }, () => {
           'worklet'
-          this._interactionState.value = InteractionState.INITIAL
+          _interactionState.value = InteractionState.INITIAL
         })
       }
     },
