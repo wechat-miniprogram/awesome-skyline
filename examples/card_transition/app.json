@@ -12,5 +12,10 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true
+    }
+  },
   "lazyCodeLoading": "requiredComponents"
 }

@@ -3,5 +3,6 @@
   "projectname": "tab-indicator",
   "setting": {
     "compileHotReLoad": false
-  }
+  },
+  "libVersion": "2.32.2"
 }

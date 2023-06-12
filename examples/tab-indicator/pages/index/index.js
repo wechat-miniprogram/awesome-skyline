@@ -34,11 +34,6 @@ Component({
 
   lifetimes: {
     created() {
-      if (this.renderer !== 'skyline') {
-        wx.worklet.shared = function (initVal) {
-          return { value: initVal }
-        }
-      }
       const shared = wx.worklet.shared
       const { windowWidth } = wx.getSystemInfoSync()
       const innerWindowWidth = windowWidth - 48 // 左右 padding 各 24

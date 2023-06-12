@@ -18,7 +18,7 @@
   <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneous-handlers="{{['scroll']}}" worklet:ongesture="handlePan">
     <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneous-handlers="{{['pan']}}">
       <scroll-view class="comment-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
-        <view class="comment-item" wx:for="{{list}}">
+        <view class="comment-item" wx:for="{{list}}" wx:key="index">
           <view class="main-comment">
             <image fade-in class="user-head-img" src="{{item.userHeadImg}}"></image>
             <view class="others">

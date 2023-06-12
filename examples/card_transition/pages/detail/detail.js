@@ -52,10 +52,6 @@ Component({
       this.transX = shared(0)
       this.transY = shared(0)
       this.isInteracting = shared(false)
-
-      if (this.renderer !== 'skyline') {
-        this.applyAnimatedStyle = () => { }
-      }
     },
     attached() {
       this.setData({

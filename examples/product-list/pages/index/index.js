@@ -60,7 +60,6 @@ Component({
 
       this.applyAnimatedStyle('.search-container', () => {
         'worklet'
-        console.log('111', this.renderer)
         return {
           backgroundColor: (this.navBarOpactiy.value > 0 && this.renderer == 'skyline') ? 'transparent' : '#fff'
         }
@@ -77,11 +76,6 @@ Component({
       })
     },
 
-    handleScrollStart(evt) {
-      'worklet'
-
-    },
-
     handleScrollUpdate(evt) {
       'worklet'
       const maxDistance = 60
@@ -91,10 +85,5 @@ Component({
       this.searchBarWidth.value = lerp(100, 70, EasingFn(progress))
       this.navBarOpactiy.value = lerp(1, 0, progress)
     },
-
-    handleScrollEnd(evt) {
-      'worklet'
-    }
-
   },
 })

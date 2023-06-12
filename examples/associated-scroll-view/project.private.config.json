@@ -3,8 +3,8 @@
     "projectname": "associated-scroll-view",
     "setting": {
         "compileHotReLoad": false,
-        "skylineRenderEnable": true
+        "skylineRenderEnable": false
     },
-    "libVersion": "2.31.1",
+    "libVersion": "2.32.2",
     "condition": {}
 }

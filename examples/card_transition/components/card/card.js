@@ -38,10 +38,6 @@ Component({
         globalThis['RouteCardSrcRect'] = beginRect
         globalThis['RouteCardDestRect'] = endRect
       })()
-
-      if (this.renderer !== 'skyline') {
-        this.applyAnimatedStyle = () => {}
-      }
     },
     attached() {
       this.applyAnimatedStyle(

@@ -30,7 +30,7 @@
 						<swiper-item>
 							<image class="detail-image" mode="widthFix" src="{{url}}" />
 						</swiper-item>
-						<swiper-item wx:for="{{imageList}}">
+						<swiper-item wx:for="{{imageList}}" wx:key="index">
 							<image class="detail-image" mode="widthFix" src="{{item}}" />
 						</swiper-item>
 					</swiper>

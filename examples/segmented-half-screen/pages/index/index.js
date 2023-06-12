@@ -1,57 +1,8 @@
 import { getCommentList } from "./comment-data"
 
-const global = (function () {
-  return globalThis
-})()
-
 function clamp(val, min, max) {
   'worklet'
   return Math.min(Math.max(val, min), max)
-}
-
-function normalizeTransform(keyframe) {
-  if (!keyframe.transform) {
-    return keyframe
-  }
-  const reg = /(rotate|rotateX|rotateY|rotateZ|scaleX|scaleY|scaleZ|skewX|skewY|translateX|translateY|translateZ)\(([^)]+)\)/g
-  const styleObj = {}
-  let result
-  while (result = reg.exec(keyframe.transform)) {
-    styleObj[result[1]] = result[2]
-  }
-  delete keyframe.transform
-  Object.assign(keyframe, styleObj)
-  return keyframe
-}
-
-// 临时兼容 WebView
-try {
-  wx.worklet.shared(0)
-} catch (e) {
-  wx.worklet.shared = function (initVal) {
-    const obj = {
-      _watchFn: [],
-      _value: initVal,
-    }
-    Object.defineProperty(obj, 'value', {
-      get() {
-        if (global._watchFn && this._watchFn.indexOf(global._watchFn) === -1) {
-          this._watchFn.push(global._watchFn)
-        }
-        return this._value
-      },
-      set(value) {
-        this._value = value
-        for (let fn of this._watchFn) {
-          fn()
-        }
-      }
-    })
-    return obj
-  }
-  wx.worklet.timing = function (toValue) {
-    return toValue
-  }
 }
 
 const { shared, timing } = wx.worklet
@@ -78,17 +29,6 @@ Component({
       this.startPan = shared(true)
       this.initTransY = shared(0) // 留言半屏的初始位置
       this.upward = shared(false)
-
-      // WebView 下临时用 animate 兼容 applyAnimatedStyle
-      if (this.renderer !== 'skyline') {
-        this.applyAnimatedStyle = (selector, fn) => {
-          global._watchFn = () => {
-            this.animate(selector, [normalizeTransform(fn())], 0)
-          }
-          this.animate(selector, [normalizeTransform(fn())], 0)
-          global._watchFn = null
-        }
-      }
     },
     attached() {
       const query = this.createSelectorQuery()

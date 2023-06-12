@@ -12,7 +12,9 @@
   "lazyCodeLoading": "requiredComponents",
   "renderer": "skyline",
   "rendererOptions": {
-    "defaultDisplayBlock": true
+    "skyline": {
+      "defaultDisplayBlock": true
+    }
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json"

@@ -79,16 +79,6 @@ Component({
   lifetimes: {
     created() {
       this._handlePan = throttle(this._handlePan, 100, {})
-      if (this.renderer !== 'skyline') {
-        wx.worklet.shared = function (initVal) {
-          return { value: initVal }
-        }
-        wx.worklet.runOnJS = function (fn) {
-          return function (arg) {
-            return fn(arg)
-          }
-        }
-      }
       this._sharedTops = wx.worklet.shared([])
       this._sharedScrollTop = wx.worklet.shared(0)
       this._sharedHeight = wx.worklet.shared(0)

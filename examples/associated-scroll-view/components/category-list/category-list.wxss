@@ -23,7 +23,7 @@
   padding: 0 8px;
   font-size: 10px;
 }
-.product-info view {
+.product-info view, .product-info text {
   margin-bottom: 3px;
 }
 .product-name {

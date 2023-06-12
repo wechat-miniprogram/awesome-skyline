@@ -5,24 +5,6 @@ const AnimationStatus = {
   completed: 3, // The animation is stopped at the end.
 }
 
-// 临时兼容 WebView
-try {
-  wx.worklet.shared(0)
-} catch (e) {
-  wx.worklet.shared = function (initVal) {
-    return { value: initVal }
-  }
-  wx.worklet.timing = function (toValue) {
-    return toValue
-  }
-  wx.worklet.runOnUI = function (fn) {
-    return function () {
-      fn()
-    }
-  }
-  wx.worklet.derived = function () {}
-}
-
 const { Easing, shared } = wx.worklet
 
 export const Curves = {

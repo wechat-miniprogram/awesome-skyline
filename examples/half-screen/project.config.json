@@ -1,5 +1,5 @@
 {
-  "appid": "wxa1ffed530ccba79d",
+  "appid": "wxe5f52902cf4de896",
   "compileType": "miniprogram",
   "libVersion": "2.30.0",
   "packOptions": {
@@ -19,7 +19,8 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "skylineRenderEnable": true
   },
   "condition": {},
   "editorSetting": {

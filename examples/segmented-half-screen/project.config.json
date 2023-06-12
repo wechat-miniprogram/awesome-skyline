@@ -19,7 +19,8 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "skylineRenderEnable": false
   },
   "condition": {},
   "editorSetting": {

@@ -38,7 +38,8 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "skylineRenderEnable": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.27.3",

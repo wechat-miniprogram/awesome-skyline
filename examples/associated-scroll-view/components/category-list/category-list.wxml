@@ -8,7 +8,7 @@
     <view class="product-item" wx:for="{{products}}" wx:key="index">
       <image class="product-image" fade-in src="{{item.image}}"></image>
       <view class="product-info">
-        <text class="product-name" max-lines="1">{{item.name}}</text>
+        <text class="product-name" max-lines="2">{{item.name}}</text>
         <view class="product-comment"><text>{{item.comment}}</text></view>
         <view class="product-data"><text>{{item.sales}}人学过</text><text>好评度100%</text></view>
         <span class="product-price">
