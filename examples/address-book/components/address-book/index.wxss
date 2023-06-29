@@ -109,11 +109,13 @@
 }
 
 .anchor-item__inner {
-  line-height: 14px;
+  line-height: 10px;
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 10px;
   margin: 1px 0;
   font-weight: 500

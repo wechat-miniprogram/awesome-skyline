@@ -47,7 +47,7 @@
     </swiper>
   </sticky-section>
 
-  <sticky-section push-pinned-header="{{false}}" padding="{{[0, 16, 0, 16]}}">
+  <sticky-section push-pinned-header="{{false}}">
     <sticky-header>
       <scroll-view
        class="vip-categorys-list"
@@ -67,8 +67,9 @@
       </scroll-view>
     </sticky-header>
     <grid-view
-     padding="6"
+     padding="{{[6, 6, 6, 6]}}"
      cross-axis-gap="6"
+     main-axis-gap="6"
      cross-axis-count="2"
      type="masonry"
     >

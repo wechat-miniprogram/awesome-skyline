@@ -121,11 +121,12 @@
 
 .good {
   background-color: #FFF;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .good-icon {
   width: 100%;
-  border-radius: 6px;
 }
 
 .good-title {
