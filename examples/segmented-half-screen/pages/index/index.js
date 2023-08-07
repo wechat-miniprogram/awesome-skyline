@@ -31,7 +31,13 @@ Component({
       this.upward = shared(false)
     },
     attached() {
+      this.setData({
+        height: screenHeight - statusBarHeight,
+      })
+    },
+    ready() {
       const query = this.createSelectorQuery()
+      // ready 生命周期里才能获取到首屏的布局信息
       query.select('.comment-header').boundingClientRect()
       query.exec((res) => {
         this.transY.value = this.initTransY.value = screenHeight - res[0].height - (screenHeight - safeArea.bottom)
@@ -40,10 +46,6 @@ Component({
       this.applyAnimatedStyle('.comment-container', () => {
         'worklet'
         return { transform: `translateY(${this.transY.value}px)` }
-      })
-
-      this.setData({
-        height: screenHeight - statusBarHeight,
       })
     },
   },

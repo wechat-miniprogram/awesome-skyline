@@ -21,8 +21,9 @@ Component({
       this.startPan = shared(true)
       this.commentHeight = shared(1000)
     },
-    attached() {
+    ready() {
       const query = this.createSelectorQuery()
+      // ready 生命周期里才能获取到首屏的布局信息
       query.select('.comment-container').boundingClientRect()
       query.exec((res) => {
         this.transY.value = this.commentHeight.value = res[0].height
