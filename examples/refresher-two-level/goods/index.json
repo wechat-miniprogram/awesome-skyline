@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigation-bar": "../components/navigation-bar"
+  },
+  "renderer": "skyline",
+  "componentFramework": "glass-easel"
+}

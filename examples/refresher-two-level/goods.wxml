@@ -1,0 +1,39 @@
+<template name="goods">
+	<view class="exp-room">
+		<view class="expand">
+			<navigation-bar class="nav-bar" title="" back="{{false}}">
+				<view class="nav-left" slot="left" bind:tap="back">
+					<image class="nav-logo" mode="aspectFill" src="../images/back_delete.png" />
+					<view class="nav-title">
+						<text>官方讲师课程</text>
+					</view>
+				</view>
+			</navigation-bar>
+			<block wx:if="{{hasRouteDone}}">
+				<view class="exp-category-list">
+					<block wx:for="{{expCategorys}}" wx:key="id">
+						<view class="exp-category-item">
+							<text class="exp-category-name {{expSelected === index ? 'selected' : ''}}">{{item.name}}</text>
+						</view>
+					</block>
+				</view>
+				<scroll-view
+				 class="scroll-area"
+				 type="list"
+				 scroll-y
+				 padding="{{padding}}"
+				 show-scrollbar="{{false}}"
+				>
+					<block wx:for="{{videoList}}" wx:key="id">
+						<view class="video-container">
+							<view class="video" style="background-color: green;">
+								<image style="width: 100%;height: 100%;" mode="aspectFill" src="{{item.url}}"></image>
+							</view>
+						</view>
+					</block>
+				</scroll-view>
+			</block>
+		</view>
+	</view>
+</template>
+

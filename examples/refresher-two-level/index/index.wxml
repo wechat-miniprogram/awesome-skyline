@@ -1,0 +1,110 @@
+<import src="../goods.wxml" />
+<navigation-bar class="nav-bar" title="" back="{{false}}">
+	<view class="nav-left" slot="left">
+		<image class="nav-logo" mode="aspectFill" src="https://res.wx.qq.com/op_res/RBwYn_b7VGuWuLJ2qBChU5TS9E0E2WBIJqkwvK4DV_NdciupZQ58P62ReribRjp3Cn0uqFLZ6v4DC7719-YaeA" />
+		<view class="nav-title">
+			<text>微信学堂</text>
+		</view>
+	</view>
+</navigation-bar>
+
+<scroll-view
+ id="scrollview"
+ class="scroll-area"
+ type="custom"
+ scroll-y
+ show-scrollbar="{{false}}"
+ refresher-enabled="{{true}}"
+ refresher-threshold="{{80}}"
+ refresher-default-style="none"
+ refresher-triggered="{{triggered}}"
+ refresher-two-level-pinned	="{{false}}"
+ refresher-two-level-enabled
+ refresher-two-level-threshold="{{150.0}}"
+ refresher-two-level-triggered="{{twoLevelTriggered}}"
+ bind:refresherpulling="onPulling"
+ bind:refresherrefresh="onRefresh"
+ bind:refresherrestore="onRestore"
+ bind:refresherabort="onAbort"
+ bind:refresherstatuschange="onStatusChange"
+ worklet:onstartstart="handleScrollStart"
+ worklet:onscrollupdate="handleScrollUpdate"
+ worklet:onscrollend="handleScrollEnd"
+>
+	<view slot="refresher" class="exp-room">
+		<view class="expand">
+			<image class="expand" src="{{secondFloorCover}}" />
+			<view class="refresher-tips">{{refreshStatus}}</view>
+		</view>
+	</view>
+	<view class="fake-nav-bar" />
+	<sticky-section push-pinned-header="{{false}}">
+		<sticky-header>
+			<view bind:tap="jumpNextPage" class="search-container" style="padding-top: {{paddingTop}}px;">
+				<view class="search">
+					<view class="search-icon-wrp">
+						<image class="search-icon" src="../images/search.png" />
+					</view>
+					<view class="search-text">这是skyline实现的～{{twoLevelStyle}}</view>
+					<view class="search-btn">搜索</view>
+				</view>
+			</view>
+		</sticky-header>
+		<swiper class="category-wrp">
+			<block wx:for="{{categorySet}}" wx:key="page">
+				<swiper-item>
+					<view class="category-list">
+						<block wx:for="{{item.categorys}}" wx:key="id" wx:for-item="category">
+							<view class="category-item" style="width: {{categoryItemWidth}}px;">
+								<image class="category-icon" src="{{category.icon}}" />
+								<view class="category-name">
+									<text>{{category.name}}</text>
+								</view>
+							</view>
+						</block>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</sticky-section>
+	<sticky-section push-pinned-header="{{false}}" padding="{{padding}}">
+		<sticky-header>
+			<scroll-view
+			 class="vip-categorys-list"
+			 scroll-x
+			 type="list"
+			 show-scrollbar="{{false}}"
+			 scroll-with-animation
+			 scroll-into-view="{{intoView}}"
+			 scroll-into-view-alignment="center"
+			>
+				<block wx:for="{{vipCategorys}}" wx:key="id">
+					<view class="vip-category-item" style="padding-left: {{index === 0 ? 20 : 40}}px;" id="vip-category-{{index}}">
+						<text class="vip-category-name {{selected === index ? 'selected' : ''}}" data-id="{{index}}" bind:tap="chooseVipCategory">
+							{{item.name}}
+						</text>
+					</view>
+				</block>
+			</scroll-view>
+		</sticky-header>
+		<grid-view cross-axis-gap="6" cross-axis-count="2" type="masonry">
+			<block wx:for="{{goods}}" wx:key="id">
+				<view class="good">
+					<image
+					 mode="widthFix"
+					 class="good-icon"
+					 fade-in
+					 src="{{item.icon}}"
+					/>
+					<view class="good-title">
+						<text>{{item.title}}</text>
+					</view>
+					<view class="good-comment">
+						<text>3万+评价</text>
+					</view>
+				</view>
+			</block>
+		</grid-view>
+	</sticky-section>
+</scroll-view>
+
