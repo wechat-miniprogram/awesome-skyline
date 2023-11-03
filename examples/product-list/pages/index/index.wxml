@@ -12,9 +12,7 @@
  type="custom"
  scroll-y
  show-scrollbar="{{false}}"
- worklet:onstartstart="handleScrollStart"
  worklet:onscrollupdate="handleScrollUpdate"
- worklet:onscrollend="handleScrollEnd"
 >
   <view class="fake-nav-bar" />
   <sticky-section push-pinned-header="{{false}}">
@@ -48,7 +46,7 @@
   </sticky-section>
 
   <sticky-section push-pinned-header="{{false}}">
-    <sticky-header>
+    <sticky-header style="position: sticky; top: 0; z-index: 1; display: block;">
       <scroll-view
        class="vip-categorys-list"
        scroll-x
