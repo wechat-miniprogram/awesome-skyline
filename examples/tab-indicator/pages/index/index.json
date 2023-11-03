@@ -3,7 +3,5 @@
     "navigation-bar": "../../components/navigation-bar"
   },
   "disableScroll": true,
-  "componentFramework": "glass-easel",
-  "renderer": "skyline",
   "navigationStyle": "custom"
 }

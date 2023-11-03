@@ -12,9 +12,13 @@
   "renderer": "skyline",
   "rendererOptions": {
     "skyline": {
-      "defaultDisplayBlock": true
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
     }
   },
   "lazyCodeLoading": "requiredComponents",
+  "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json"
 }
