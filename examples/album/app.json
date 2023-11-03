@@ -13,10 +13,14 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
+  "componentFramework": "glass-easel",
   "renderer": "skyline",
   "rendererOptions": {
     "skyline": {
-      "defaultDisplayBlock": true
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
     }
   }
 }

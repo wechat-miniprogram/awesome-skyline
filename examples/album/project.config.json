@@ -39,10 +39,11 @@
       "outputPath": ""
     },
     "condition": false,
-    "skylineRenderEnable": false
+    "skylineRenderEnable": false,
+    "compileWorklet": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.27.3",
+  "libVersion": "latest",
   "appid": "wxe5f52902cf4de896",
   "projectname": "album-demo",
   "condition": {},

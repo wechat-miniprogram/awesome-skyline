@@ -4,7 +4,5 @@
     "album": "../../components/album/index"
   },
   "disableScroll": true,
-  "componentFramework": "glass-easel",
-  "renderer": "skyline",
   "navigationStyle": "custom"
 }
