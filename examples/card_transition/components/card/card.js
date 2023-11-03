@@ -100,7 +100,6 @@ Component({
     },
     handleFrame(data) {
       'worklet'
-      console.log('handleFrame', data)
       this.direction.value = data.direction
       if (data.direction === FlightDirection.PUSH) { // 进入
         // 飞跃过程中，卡片从 100% 改为固定宽度，通过 scale 手动控制缩放

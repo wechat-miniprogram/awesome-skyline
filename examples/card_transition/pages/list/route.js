@@ -8,11 +8,11 @@ const AnimationStatus = {
 const { Easing, shared } = wx.worklet
 
 export const Curves = {
-  linearToEaseOut: Easing.bezier(0.35, 0.91, 0.33, 0.97).factory(),
-  easeInToLinear: Easing.bezier(0.67, 0.03, 0.65, 0.09).factory(),
-  fastOutSlowIn: Easing.bezier(0.4, 0.0, 0.2, 1.0).factory(),
-  slowOutFastIn: Easing.bezier(0.0, 0.8, 1.0, 0.6).factory(),
-  easeOutCubic: Easing.bezier(0.215, 0.61, 0.355, 1.0).factory(),
+  linearToEaseOut: Easing.cubicBezier(0.35, 0.91, 0.33, 0.97),
+  easeInToLinear: Easing.cubicBezier(0.67, 0.03, 0.65, 0.09),
+  fastOutSlowIn: Easing.cubicBezier(0.4, 0.0, 0.2, 1.0),
+  slowOutFastIn: Easing.cubicBezier(0.0, 0.8, 1.0, 0.6),
+  easeOutCubic: Easing.cubicBezier(0.215, 0.61, 0.355, 1.0),
 }
 
 export function CurveAnimation({
@@ -72,7 +72,7 @@ const ScaleTransitionRouteBuilder = (routeContext) => {
     // 手势返回时，动画在详情页处理，此处顶层节点只做整体透明度淡出
     if (userGestureInProgress.value) {
       return {
-        opacity: _curvePrimaryAnimation.value,
+        opacity: Easing.out(Easing.cubicBezier(0.5, 0, 0.7, 0.5)(primaryAnimation.value)),
       }
     }
 

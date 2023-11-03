@@ -1,7 +1,7 @@
 {
   "appid": "wxe5f52902cf4de896",
   "compileType": "miniprogram",
-  "libVersion": "2.28.0",
+  "libVersion": "latest",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -20,7 +20,8 @@
       "outputPath": ""
     },
     "condition": false,
-    "skylineRenderEnable": false
+    "skylineRenderEnable": false,
+    "compileWorklet": true
   },
   "condition": {},
   "editorSetting": {

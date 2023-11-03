@@ -6,19 +6,19 @@
  type="custom"
  show-scrollbar="{{false}}"
 >
-	<grid-view
-	 type="masonry"
-	 cross-axis-count="2"
-	 cross-axis-gap="4"
-	 main-axis-gap="4"
-	>
-		<card
-		 wx:for="{{gridList}}"
-		 wx:key="id"
-     	 card-width="{{cardWidth}}"
-		 index="{{index}}"
-		 item="{{item}}"
-		/>
-	</grid-view>
+  <grid-view
+    type="masonry"
+    cross-axis-count="2"
+    cross-axis-gap="4"
+    main-axis-gap="4"
+  >
+    <card
+      wx:for="{{gridList}}"
+      wx:key="id"
+      card-width="{{cardWidth}}"
+      index="{{index}}"
+      item="{{item}}"
+    />
+  </grid-view>
 </scroll-view>
 

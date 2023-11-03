@@ -73,7 +73,7 @@ Component({
         reverseCurve: Easing.out(Curves.fastOutSlowIn)
       })
 
-      this.applyAnimatedStyle('#page', () => {
+      this.applyAnimatedStyle('.detail-content', () => {
         'worklet'
         return {
           opacity: _curvePrimaryAnimation.value
