@@ -48,20 +48,12 @@
   margin-left: 11px
 }
 
-.city-group_part .city-group__content {
-  padding: 0 15px
-}
-
 .city-group_part .city-group__title {
   padding-bottom: 12px
 }
 
 .city-group__title {
   padding: 12px 12px 11px
-}
-
-.city-group__content {
-  font-size: 0
 }
 
 .square-tag {
@@ -164,6 +156,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1;
   width: 30px;
   height: 100vh;
   justify-content: center;
@@ -180,4 +173,11 @@
   color: #5d5d5d;
   background-color: #EAEAEA;
   font-weight: bold;
+}
+
+sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: block;
 }

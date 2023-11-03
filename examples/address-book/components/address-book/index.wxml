@@ -5,7 +5,7 @@
   show-scrollbar="{{false}}"
   scroll-into-view="{{intoView}}"
   class="scroll-view"
-  bindscroll="handleScroll"
+  bind:scroll="handleScroll"
 >
   <view><slot></slot></view>
   <sticky-section wx:for="{{list}}" wx:key="alpha">
@@ -13,15 +13,9 @@
       <view class="city-group__title tips-color" id="{{item.alpha}}">{{item.alpha}}</view>
     </sticky-header>
     <list-view>
-      <view class="city-group__content">
-        <view class="city-group__list">
-          <block wx:for="{{item.subItems}}" wx:for-item="subItem" wx:key="name">
-            <view class="city-group__item thin-border-bottom" hover-class="bg-highlight">
-              {{subItem.name}}
-            </view>
-          </block>
-        </view>
-      </view>
+      <block wx:for="{{item.subItems}}" wx:for-item="subItem" wx:key="name">
+        <view class="city-group__item thin-border-bottom" hover-class="bg-highlight">{{subItem.name}}</view>
+      </block>
     </list-view>
   </sticky-section>
 </scroll-view>

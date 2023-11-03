@@ -126,25 +126,13 @@ Component({
     },
     computedSize() {
       this.data.alphabet.forEach((element, index) => {
-        if (this.renderer === 'skyline') {
-          // Skyline 下的列表是按需渲染的，无法通过 NodesRef.boundingClientRect 直接
-          // 获取 header 的 offsetTop，而是通过 IntersectionObserver 监听 header 即
-          // 将进入可视区域时，才能计算得出 offsetTop
-          this.createIntersectionObserver().relativeToViewport().observe(`#${element}`, (res) => {
-            const ratio = res.intersectionRatio
-            const rect = res.intersectionRect
-            if (ratio === 1 && rect.top === 0 && rect.bottom >= rect.height) {
-              // 得出每个 header 距离 scroll-view 滚动顶部的 offsetTop
-              this.data._tops[index] = res.boundingClientRect.top + this._sharedScrollTop.value
-              this._sharedTops.value = this.data._tops
-            }
-          })
-        } else {
-          this.createSelectorQuery().select(`#${element}`).boundingClientRect(res => {
-            this.data._tops[index] = res.top
-            this._sharedTops.value = this.data._tops
-          }).exec()
-        }
+        // NOTE: 在 Skyline 下如果用了 list-view / grid-view 会有按需渲染特性，取其子节点的 clientRect
+        // 时若不在屏会取不到，而这里是取 sticky-header 的，会立即渲染也就能立即返回，但 top 值是预估的。
+        // 因为 list-view 的高度是预估的（第一个子节点的高度 * 数量），由于其子节点是等高，故预估是基本准确的
+        this.createSelectorQuery().select(`#${element}`).boundingClientRect(res => {
+          this.data._tops[index] = res.top
+          this._sharedTops.value = this.data._tops
+        }).exec()
       })
     },
     handleScroll(e) {
