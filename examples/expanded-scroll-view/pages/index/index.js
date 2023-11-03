@@ -198,7 +198,6 @@ Component({
           this._translY.value = decay({velocity: e.velocityY, clamp: [-this._tabsTop.value, 0]})
         }
       }
-      // console.log('@@@ pan', e.state, this._translY.value | 0, this._interactionState.value)
     },
     shouldPanResponse() {
       'worklet'
@@ -228,7 +227,6 @@ Component({
     },
     adjustDeceleration(velocity) {
       'worklet'
-      console.log('@@@ adjustDecelerationVelocity', velocity)
       const scrollTop = this._scrollTop.value
       return scrollTop <= 0 ? 0 : velocity
     },

@@ -274,3 +274,10 @@ view {
   font-weight: 500;
   text-align: center;
 }
+
+sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: block;
+}

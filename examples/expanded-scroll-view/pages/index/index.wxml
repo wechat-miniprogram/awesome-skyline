@@ -87,14 +87,14 @@
             scroll-y
             show-scrollbar="{{false}}"
             adjustDecelerationVelocity="adjustDeceleration"
-            bindscroll="handleScroll"
+            worklet:onscrollupdate="handleScroll"
           >
-            <sticky-section wx:for="{{list}}" wx:key="index">
+            <sticky-section wx:for="{{list}}" wx:key="header">
               <sticky-header>
                 <view class="product-group">{{item.header}}</view>
               </sticky-header>
               <list-view>
-                <view class="product-item" wx:for="{{item.data}}" wx:key="index" wx:for-item="subItem">
+                <view class="product-item" wx:for="{{item.data}}" wx:key="name" wx:for-item="subItem">
                   <image class="product-image" fade-in src="{{subItem.image}}"></image>
                   <view class="product-info">
                     <view class="product-name">{{subItem.name}}</view>
