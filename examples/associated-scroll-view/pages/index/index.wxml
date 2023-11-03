@@ -13,7 +13,7 @@
    show-scrollbar="{{false}}"
    enable-flex
   >
-    <view class="first-category-item" wx:for="{{categories}}" wx:key="index" list-item>
+    <view class="first-category-item" wx:for="{{categories}}" wx:key="name" list-item>
       <image class="first-category-item-image" mode="aspectFill" src="{{item.image}}"></image>
       <view class="first-category-item-name">{{item.name}}</view>
     </view>
@@ -21,7 +21,7 @@
 </view>
 <view class="main">
   <view class="second-category">
-    <view wx:for="{{categories}}" wx:key="index" class="second-category-item {{selected === index ? 'selected' : ''}}">{{item.name}}</view>
+    <view wx:for="{{categories}}" wx:key="name" class="second-category-item {{selected === index ? 'selected' : ''}}">{{item.name}}</view>
   </view>
   <vertical-drag-gesture-handler
    tag="swiper"
@@ -30,8 +30,8 @@
    worklet:should-response-on-move="shouldSwiperResp"
   >
     <swiper class="product-list-wrapper" vertical cache-extent="1" bind:change="onChange" worklet:onscrollstart="onSwiperStart" worklet:onscrollend="onSwiperEnd">
-      <swiper-item wx:for="{{categories}}" wx:key="index">
-      <category-list class="category-list" products="{{products}}" max="{{categories.length}}" index="{{index}}" />
+      <swiper-item wx:for="{{categories}}" wx:key="name">
+        <category-list class="category-list" products="{{products}}" max="{{categories.length}}" index="{{index}}" />
       </swiper-item>
     </swiper>
   </vertical-drag-gesture-handler>

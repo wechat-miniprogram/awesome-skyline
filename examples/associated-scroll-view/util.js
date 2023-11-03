@@ -53,7 +53,8 @@ export function getProducts() {
     'https://res.wx.qq.com/op_res/mGK9l-4vYzVgHuIz_uFeJitcJIfp9P4VSWxi3126XeiyZ2BnnH0xg-oIXAUgHBgaHjBMwxzSjSkEkTMRqzlKZw',
     'https://res.wx.qq.com/op_res/mGK9l-4vYzVgHuIz_uFeJnw5zq4f_XW3swKAowexqAbziuojU5W9v4CJixA-NDJShkfS0ne3KWY_6SB56yqb3g',
   ]
-  products = products.map((name, id) => ({
+  products = products.concat(products).map((name, id) => ({
+    id,
     name,
     image: images[(id % products.length)],
     comment: '一如既往的好',
@@ -61,5 +62,5 @@ export function getProducts() {
     discount: 0.01,
     price: 0.01
   }))
-  return products.concat(products)
+  return products
 }

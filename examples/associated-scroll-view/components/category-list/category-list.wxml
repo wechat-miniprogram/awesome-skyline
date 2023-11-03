@@ -4,8 +4,8 @@
  simultaneous-handlers="{{['swiper']}}"
  worklet:should-response-on-move="shouldScrollViewResp"
 >
-  <scroll-view class="product-list" type="list" scroll-y scroll-top="{{scrollTop}}" worklet:onscrollupdate="handleScroll">
-    <view class="product-item" wx:for="{{products}}" wx:key="index">
+  <scroll-view class="product-list" type="list" scroll-y worklet:onscrollupdate="handleScroll">
+    <view class="product-item" wx:for="{{products}}" wx:key="id">
       <image class="product-image" fade-in src="{{item.image}}"></image>
       <view class="product-info">
         <text class="product-name" max-lines="2">{{item.name}}</text>
