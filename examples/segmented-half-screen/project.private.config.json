@@ -3,7 +3,7 @@
   "projectname": "segmented",
   "setting": {
     "compileHotReLoad": false,
-    "skylineRenderEnable": false
+    "skylineRenderEnable": true
   },
-  "libVersion": "2.32.2"
+  "libVersion": "latest"
 }

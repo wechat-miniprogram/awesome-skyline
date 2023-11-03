@@ -11,8 +11,8 @@
   <!-- 滚动区要与 pan 手势协商 -->
   <pan-gesture-handler id="pan" worklet:should-response-on-move="shouldPanResponse" simultaneousHandlers="{{['scroll']}}" worklet:ongesture="handlePan">
     <vertical-drag-gesture-handler id="scroll" native-view="scroll-view" worklet:should-response-on-move="shouldScrollViewResponse" simultaneousHandlers="{{['pan']}}">
-      <scroll-view class="comment-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" bindscroll="handleScroll" type="list" show-scrollbar="{{false}}">
-        <view class="comment-item" wx:for="{{list}}" wx:key="index">
+      <scroll-view class="comment-list" scroll-y worklet:adjust-deceleration-velocity="adjustDecelerationVelocity" worklet:onscrollupdate="handleScroll" type="list" show-scrollbar="{{false}}">
+        <view class="comment-item" wx:for="{{list}}" wx:key="comment">
           <view class="main-comment">
             <image fade-in class="user-head-img" src="{{item.userHeadImg}}"></image>
             <view class="others">
@@ -20,7 +20,7 @@
               <text class="content">{{item.comment}}</text>
             </view>
           </view>
-          <view class="sub-comment" wx:for="{{item.subCommentList}}" wx:key="id" wx:for-item="subItem" wx:for-index="subIndex">
+          <view class="sub-comment" wx:for="{{item.subCommentList}}" wx:key="comment" wx:for-item="subItem" wx:for-index="subIndex">
             <image fade-in class="user-head-img" src="{{subItem.userHeadImg}}"></image>
             <view class="others">
               <text class="user-name">{{subItem.userName}} 回复 {{subItem.replyUserName}}</text>

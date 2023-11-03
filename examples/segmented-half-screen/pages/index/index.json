@@ -1,7 +1,5 @@
 {
   "usingComponents": {},
   "disableScroll": true,
-  "navigationStyle": "custom",
-  "componentFramework": "glass-easel",
-  "renderer": "skyline"
+  "navigationStyle": "custom"
 }
