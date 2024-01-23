@@ -1,0 +1,52 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.scroll-area {
+  flex: 1;
+  overflow-y: hidden;
+  padding: 0 8px;
+  box-sizing: border-box;
+  margin-bottom: calc(84px + env(safe-area-inset-bottom));
+}
+
+.intro {
+  padding: 30px;
+  text-align: center;
+}
+
+.app-bar {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.title {
+  margin-top: 16px;
+  margin-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cards {
+  /* margin: 24px 0; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 8px;
+}
+
+.cover {
+  width: 43vw;
+  height: 43vw;
+  margin-bottom: 10px;
+}

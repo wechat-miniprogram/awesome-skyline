@@ -1,0 +1,26 @@
+<navigation-bar
+ title="微信学堂"
+ back="{{true}}"
+ color="black"
+ background="#FFF"
+/>
+<scroll-view
+ class="scroll-area"
+ type="list"
+ scroll-y
+ show-scrollbar="{{false}}"
+>
+	<view class="cover-wrap center">
+		<image class="cover" src="{{music.coverImg}}" mode="aspectFill" />
+	</view>
+
+	<view style="margin: 60px 0 24px;">为你推荐</view>
+	<view class="album-music row" wx:for="{{albumMusicList}}" wx:key="id">
+		<image class="album-music-cover" src="{{item.coverImg}}" mode="aspectFill" />
+		<view class="column">
+			<view>{{item.name}}</view>
+			<view class="author">{{item.author}}</view>
+		</view>
+	</view>
+</scroll-view>
+

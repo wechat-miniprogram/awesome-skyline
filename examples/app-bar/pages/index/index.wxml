@@ -1,0 +1,40 @@
+<navigation-bar
+ title="微信学堂"
+ back="{{false}}"
+ color="black"
+ background="#FFF"
+/>
+<scroll-view
+ class="scroll-area"
+ type="list"
+ scroll-y
+ show-scrollbar="{{false}}"
+>
+	<view class="title">本月课程上新</view>
+	<view class="cards">
+		<view
+		 class="card"
+		 wx:for="{{musicList}}"
+     wx:key="id"
+     data-idx="{{index}}"
+		 bind:tap="goDetail"
+		>
+			<image class="cover" mode="aspectFill" src="{{item.coverImg}}" />
+			<view>{{item.title}}</view>
+		</view>
+	</view>
+	<view class="title">最近学过</view>
+	<view class="cards">
+		<view
+		 class="card"
+		 wx:for="{{musicList}}"
+     wx:key="id"
+     data-idx="{{index}}"
+		 bind:tap="goDetail"
+		>
+			<image class="cover" mode="aspectFill" src="{{item.coverImg}}" />
+			<view>{{item.title}}</view>
+		</view>
+	</view>
+</scroll-view>
+
