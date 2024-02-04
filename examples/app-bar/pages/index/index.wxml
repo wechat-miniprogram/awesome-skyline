@@ -1,6 +1,6 @@
 <navigation-bar
  title="微信学堂"
- back="{{false}}"
+ back="{{back}}"
  color="black"
  background="#FFF"
 />

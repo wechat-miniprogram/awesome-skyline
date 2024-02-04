@@ -2,6 +2,7 @@ const app = getApp()
 
 Page({
   data: {
+    back: false,
     maxCoverSize: 0,
     musicList: [
       {
@@ -23,20 +24,20 @@ Page({
     ]
   },
   onLoad() {
-    
-    console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：')
-    console.log('https://developers.weixin.qq.com/miniprogram/dev/devtools/minicode.html')
+    // 在小程序示例中展示返回按钮
+    if (this.route.includes('packageSkylineExamples/examples/')) {
+      this.setData({
+        back: true
+      })
+    }
   },
   onShow() {
+    // 仅在 app-bar demo 页面展示
     if (typeof this.getAppBar === 'function' ) {
       const appBarComp = this.getAppBar()
       appBarComp.setData({
         showAppbar: true
       })
-      console.log('showAppbar', appBarComp.data.showAppbar)
-      // this.setData({
-      //   maxCoverSize: appBarComp.data.maxCoverSize
-      // })
     }
   },
 
