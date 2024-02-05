@@ -24,7 +24,7 @@
   padding: 8px;
   font-size: 14px;
   font-weight: 500;
-  height: 54px;
+  /* height: 54px; */
   overflow: hidden;
 }
 
