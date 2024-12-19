@@ -80,9 +80,17 @@ Component({
 
       this.applyAnimatedStyle('.img', () => {
         'worklet'
+        let width = `${sharedValues[IMAGE_WIDTH].value}px`
+        if (sharedValues[IMAGE_WIDTH].value === 0) {
+          width = ``
+        }
+        let height = `${sharedValues[IMAGE_HEIGHT].value}px`
+        if (sharedValues[IMAGE_HEIGHT].value === 0) {
+          height = ``
+        }
         return {
-          width: `${sharedValues[IMAGE_WIDTH].value}px`,
-          height: `${sharedValues[IMAGE_HEIGHT].value}px`,
+          width,
+          height,
         }
       })
 
