@@ -61,12 +61,13 @@ Component({
         () => {
           'worklet'
           return {
+            opacity: this.opacity.value,
             borderTopRightRadius: this.radius.value, // 不带单位默认是 px
             borderTopLeftRadius: this.radius.value,
           }
         },
         {
-          immediate: true,
+          immediate: false,
           flush: 'sync'
         },
         () => {}, 
